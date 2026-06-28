@@ -45,12 +45,13 @@ function trackEvent(eventName, params = {}) {
    STATIC DATA & CAREER DATABASE
    ================================================================ */
 const GRADES = [
-  { id: "8th", label: "8th Grade or Below", years: 5 },
-  { id: "9th", label: "9th Grade (Freshman)", years: 4 },
-  { id: "10th", label: "10th Grade (Sophomore)", years: 3 },
-  { id: "11th", label: "11th Grade (Junior)", years: 2 },
-  { id: "12th", label: "12th Grade (Senior)", years: 1 },
-  { id: "college", label: "Already in College", years: 0 },
+  { id: "y8", label: "Year 8 or below", years: 6 },
+  { id: "y9", label: "Year 9", years: 5 },
+  { id: "y10", label: "Year 10 (GCSE)", years: 4 },
+  { id: "y11", label: "Year 11 (GCSE)", years: 3 },
+  { id: "y12", label: "Year 12 (Sixth Form or College)", years: 2 },
+  { id: "y13", label: "Year 13 (Sixth Form or College)", years: 1 },
+  { id: "university", label: "Already at university", years: 0 },
   { id: "adult", label: "Adult exploring for myself", years: 0 },
 ];
 
@@ -193,22 +194,73 @@ Careers DB: Counselor 98%, Firefighter 97%, Physician 96%, Diplomat 95%, NP 94%,
 
 // ---- Client-side template generators (no API cost) ----
 const YEAR_TEMPLATES = {
-  "8th": [
-    { year: "8th Grade", courses: "Honors Math and English, Intro to Computer Science if available", activities: "Join 2 clubs aligned with interests, start volunteering", summer: "Summer camp or program in area of interest", portfolio: "Start a journal of career interests and activities", aiMilestone: "Explore ChatGPT and AI tools for homework help" },
-    { year: "9th Grade", courses: "Honors/AP track in strong subjects, foreign language", activities: "Deepen club involvement, seek leadership roles", summer: "Job shadow or informational interviews in fields of interest", portfolio: "Create a digital portfolio of projects and activities", aiMilestone: "Use AI tools for research projects, learn what AI can and cannot do" },
-    { year: "10th Grade", courses: "AP classes in strongest subjects, consider dual enrollment", activities: "Take leadership position in primary activity, add community service", summer: "Internship, research program, or intensive summer program", portfolio: "Build 1-2 projects demonstrating skills in interest area", aiMilestone: "Learn basic data analysis or use AI in a subject-specific project" },
-    { year: "11th Grade", courses: "Most rigorous schedule in strong subjects, SAT/ACT prep", activities: "Lead primary organization, mentor younger students", summer: "Competitive internship or research with a mentor", portfolio: "Complete a significant project showcasing expertise", aiMilestone: "Use AI tools professionally in internship or research" },
-    { year: "12th Grade", courses: "Continue rigor, explore college-level courses", activities: "Senior leadership, capstone project", summer: "Pre-college program or continued professional experience", portfolio: "Polish portfolio for college applications", aiMilestone: "Write about AI and your field in college essays" },
-    { year: "College Year 1", courses: "Declare or explore major, take intro AI/data course", activities: "Join professional clubs, seek research opportunities", summer: "Industry internship in target career field", portfolio: "Professional resume with AI skills highlighted", aiMilestone: "Complete an online AI certification relevant to your major" },
+  "y8": [
+    {
+      year: "Year 8 or Below",
+      courses: "Focus on breadth across all subjects — this is the time to discover what genuinely interests you, not to specialise. Keep Maths, English, and sciences strong. Start exploring creative, technical, and humanities subjects equally. Talk to your teachers about which GCSE options you'll be choosing in Year 9.",
+      activities: "Join clubs that stretch you beyond your comfort zone — drama, coding, sports, debating, or art. Start the Duke of Edinburgh Bronze Award if your school offers it at this stage. Volunteer locally. Try things you might not stick with — this is exactly the right time for that.",
+      summer: "Work experience taster days, summer reading, a creative project, or a local volunteering stint. STEM summer schools (many are free — check Nuffield Research Placements and the Smallpeice Trust). Don't over-schedule; unstructured time to explore personal interests matters here.",
+      portfolio: "Start a simple journal or notes document tracking what you enjoy, what you're good at, and what you've tried. No formal portfolio needed yet — just building awareness of your strengths.",
+      aiMilestone: "Use an AI assistant (Claude, ChatGPT) to explore careers you're curious about. Ask it to explain what different jobs actually involve day-to-day, not just job titles."
+    },
+    {
+      year: "Year 9",
+      courses: "GCSE option choices are typically made this year — one of the most consequential decisions of secondary school. Keep Maths and English (compulsory). Think carefully about which optional subjects align with possible career directions, but don't over-narrow. Talk to your careers adviser before finalising choices.",
+      activities: "Duke of Edinburgh Bronze Award. School leadership roles (form representative, prefect duties if available). Start building a track record of commitment in one or two activities rather than sampling many. Springpod virtual work experience placements are available from Year 9.",
+      summer: "Springpod or Speakers for Schools virtual work experience. Local volunteering. Begin researching what different career paths actually require — qualifications, timelines, entry routes. A short coding or creative skills course online (free options: Khan Academy, FutureLearn).",
+      portfolio: "Record your GCSE option choices and the reasoning behind them. Note any work experience, volunteering, or new skills. Keep it brief — a running document is fine.",
+      aiMilestone: "Use the National Careers Service skills assessment alongside an AI tool to explore how your school subjects connect to real careers."
+    },
+    {
+      year: "Year 10 (GCSE)",
+      courses: "First year of GCSE study. Build consistent study habits early — the groundwork laid in Year 10 directly affects Year 11 outcomes. If your school offers it, consider whether an EPQ (Extended Project Qualification) could begin in Year 10 or 11 — universities value it. BTECs running alongside GCSEs count; know what qualifications you're actually working toward.",
+      activities: "Duke of Edinburgh Bronze completion if not already done; start Silver. School clubs, sports teams, arts productions — admissions tutors and employers look for sustained commitment over time. First formal work experience placement (many schools organise this in Year 10).",
+      summer: "Year 10 summer is ideal for a first real work experience placement if school hasn't arranged one. NHS work experience, local law firms, engineering companies, and creative agencies all offer placements. NCS (National Citizen Service) runs summer programmes for 15–17 year olds.",
+      portfolio: "Document your work experience: what you did, what you observed, what surprised you. One honest paragraph is more useful than a polished brochure.",
+      aiMilestone: "Use Springpod's AI-powered career matching alongside your own research. Ask an AI to help you write a reflection on your work experience."
+    },
+    {
+      year: "Year 11 (GCSE)",
+      courses: "GCSE exam year. Prioritise revision planning from September. Research post-16 options: A-levels (typically 3 subjects), BTEC Level 3, T-Levels (technical, two-year, include substantial industry placement), or a Level 3 Apprenticeship. Applications to sixth form, FE college, or apprenticeships usually open in autumn/winter. You are legally required to remain in education or training until age 18.",
+      activities: "Keep commitments manageable during exam term but don't drop everything. Duke of Edinburgh Silver Award ongoing. Prefect or leadership roles strengthen applications. Careers fair attendance.",
+      summer: "Post-GCSE summer is a significant window. Results Day is in late August. Before results: rest, but have a back-up option for sixth form or college in case grades differ from predictions. After results: use remaining summer for reading, a skill, or work/volunteering.",
+      portfolio: "Finalise a clear record of GCSEs (predicted and actual), work experience, volunteering, and activities. This becomes the foundation for sixth form applications and, later, your UCAS personal statement.",
+      aiMilestone: "Use an AI tool to research the difference between A-level, BTEC, T-Level, and apprenticeship routes for your area of interest."
+    },
+    {
+      year: "Year 12 (Sixth Form / College)",
+      courses: "First year of post-16 study. A-level students typically take 3–4 subjects. BTEC and T-Level students follow their programme's structure. EPQ is strongly recommended if available. Begin thinking about university vs. degree apprenticeship vs. employment. UCAS opens for the following year's cycle.",
+      activities: "Duke of Edinburgh Gold Award. Sixth form or college leadership. Part-time work if manageable. Attend university open days from summer of Year 12. Springpod virtual industry placements. Young Enterprise company programme.",
+      summer: "University open days (June–September). Summer internship, work placement, or shadowing. Insight programmes at law firms, NHS, banks, engineering companies. Begin drafting personal statement ideas. NCS leadership programmes. Nuffield Research Placements.",
+      portfolio: "Start your UCAS personal statement draft. Record open days attended and your notes on each. If considering degree apprenticeships, research which companies recruit and when.",
+      aiMilestone: "Use Claude or Perplexity to research universities and courses — entry requirements, course content, graduate outcomes (check Discover Uni for official data)."
+    },
+    {
+      year: "Year 13 (Sixth Form / College)",
+      courses: "A-level, BTEC, or T-Level final year. Exam preparation is the primary academic focus from January. EPQ submission typically autumn/winter. UCAS application deadline for most courses: 29 January. Oxford, Cambridge, and medicine/dentistry/veterinary science: 15 October deadline. Personal statement: 4,000 characters, genuinely personal.",
+      activities: "Maintain existing commitments — consistent involvement looks better than dropping everything to 'focus on studying'. Leadership roles at peak value here. Interview preparation for university admissions and degree apprenticeship assessment centres.",
+      summer: "Results Day: A-level results published mid-August. If grades meet offers: confirm your place. If grades miss: Clearing — places at good universities are real. If grades exceed offers: Adjustment. Pre-university: read widely in your subject, set up student finance, sort accommodation.",
+      portfolio: "Final UCAS personal statement. Record of all open days, work experience, volunteering, and achievements for interview preparation.",
+      aiMilestone: "Use an AI tool to practise for university or apprenticeship interviews. Use Discover Uni to compare graduate salary and employment outcomes before final decisions."
+    },
+    {
+      year: "University / Further Education Year 1",
+      courses: "Whether at university, on a degree apprenticeship, or in higher-level FE, Year 1 sets the habits that define the rest of your studies. University: join your department's student society and at least one non-academic society in the first week. Degree apprenticeship: balance academic study with workplace performance from day one.",
+      activities: "Student union roles, course representative, volunteering, part-time work. University careers service: register in Week 1. Graduate employers recruit on rolling cycles — many summer internship applications open in October of Year 1.",
+      summer: "First-year summer internship applications open from October — apply in your first term. Competitive graduate employers (banks, consultancies, law firms, engineering companies) have structured Year 1 insight and internship programmes.",
+      portfolio: "Begin a professional CV. Record university societies, leadership roles, academic projects, and skills gained. Start building a LinkedIn network.",
+      aiMilestone: "Use LinkedIn and Prospects alongside AI tools to map graduate career paths from your degree. Use NotebookLM to organise your career research notes."
+    },
   ],
-  "9th": null, "10th": null, "11th": null, "12th": null, "college": null, "adult": null,
+  "y9": null, "y10": null, "y11": null, "y12": null, "y13": null, "university": null, "adult": null,
 };
+
 // Generate year plan from templates starting at the right grade
 function getYearPlan(gradeId) {
-  const allYears = YEAR_TEMPLATES["8th"]; // base template
-  const gradeOrder = ["8th", "9th", "10th", "11th", "12th", "college"];
+  const allYears = YEAR_TEMPLATES["y8"]; // base template
+  const gradeOrder = ["y8", "y9", "y10", "y11", "y12", "y13", "university"];
   const startIdx = gradeOrder.indexOf(gradeId);
-  if (startIdx === -1) return allYears.slice(-2); // adult: just college years
+  if (startIdx === -1) return allYears.slice(-2); // adult: just university years
   return allYears.slice(startIdx);
 }
 
