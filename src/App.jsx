@@ -58,13 +58,13 @@ const GRADES = [
 const INTERESTS = [
   { id: "healthcare", label: "Healthcare & Medicine", ico: "🏥", ex: "Nursing, psychiatry, surgery, therapy" },
   { id: "tech", label: "Technology & Engineering", ico: "💻", ex: "Software, cybersecurity, AI, robotics" },
-  { id: "trades", label: "Skilled Trades", ico: "🔧", ex: "Electrical, plumbing, HVAC, solar" },
+  { id: "trades", label: "Skilled Trades", ico: "🔧", ex: "Electrical, plumbing, heating engineering, solar" },
   { id: "creative", label: "Creative Arts & Design", ico: "🎨", ex: "Film, music, graphic design, UX" },
   { id: "business", label: "Business & Finance", ico: "📈", ex: "Management, consulting, investing" },
-  { id: "law", label: "Law & Policy", ico: "⚖️", ex: "Trial law, governance, compliance" },
+  { id: "law", label: "Law & Policy", ico: "⚖️", ex: "Barrister, solicitor, governance, compliance" },
   { id: "science", label: "Science & Environment", ico: "🔬", ex: "Biology, climate science, research" },
-  { id: "education", label: "Education", ico: "📚", ex: "Teaching, counseling, special ed" },
-  { id: "public", label: "Public Service & Emergency", ico: "🚒", ex: "Fire, EMT, social work, military" },
+  { id: "education", label: "Education", ico: "📚", ex: "Teaching, careers advice, special ed" },
+  { id: "public", label: "Public Service & Emergency", ico: "🚒", ex: "Fire service, paramedic, social work, military" },
   { id: "diplomacy", label: "Diplomacy & International", ico: "🌍", ex: "Foreign service, NGO, AI governance" },
 ];
 
@@ -86,27 +86,30 @@ const CONCERNS = [
   { id: "entry_level", label: "Entry-level jobs are disappearing before my kid graduates" },
   { id: "ai_replace", label: "AI will make their chosen field obsolete" },
   { id: "no_direction", label: "My child has no idea what they want to do" },
-  { id: "debt_roi", label: "College debt won't pay off in this economy" },
+  { id: "debt_roi", label: "University costs won't pay off in this economy" },
   { id: "too_late", label: "We are already behind and don't know where to start" },
 ];
 
 const SUBJECTS = [
-  { id: "math", label: "Math" }, { id: "english", label: "English / Writing" },
+  { id: "math", label: "Maths" }, { id: "english", label: "English / Writing" },
   { id: "sciences", label: "Sciences" }, { id: "history", label: "History / Social Studies" },
   { id: "languages", label: "Foreign Language" }, { id: "cs", label: "Computer Science" },
   { id: "arts", label: "Arts / Music" }, { id: "sports", label: "Sports / Physical Ed" },
+  { id: "epq", label: "EPQ (Extended Project)" }, { id: "btec", label: "BTEC / T-Level" },
 ];
 
 // Keyword map: subject id → words that signal it
 const SUBJECT_KEYWORDS = {
-  math: ["math","algebra","calculus","geometry","statistics","stats","trigonometry","trig","numbers","equations","precalc","quantitative"],
-  english: ["english","writing","essay","literature","lit","reading","poetry","grammar","language arts","journalism","creative writing","stories","books","novel","composition"],
-  sciences: ["science","biology","bio","chemistry","chem","physics","anatomy","ecology","earth science","environmental","lab","research","scientific","medicine","health","nursing"],
-  history: ["history","social studies","economics","econ","government","politics","political","civics","geography","world history","us history","psychology","psych","sociology","anthropology","culture"],
-  languages: ["spanish","french","german","chinese","mandarin","japanese","latin","arabic","korean","italian","foreign language","language","linguistic"],
-  cs: ["computer","coding","programming","code","software","technology","tech","ai","machine learning","robotics","engineering","web","app","python","javascript","java","stem","data"],
-  arts: ["art","music","drawing","painting","theater","drama","film","photography","design","dance","visual","creative","sculpt","choir","band","orchestra","perform","studio"],
-  sports: ["sports","fitness","physical","gym","athletic","exercise","health","nutrition","coaching","pe","football","basketball","soccer","swimming","track","running","baseball"],
+  math: ["math","maths","further maths","further mathematics","algebra","calculus","geometry","statistics","stats","mechanics","trigonometry","trig","numbers","equations","precalc","quantitative"],
+  english: ["english","english language","english literature","writing","essay","literature","lit","reading","poetry","grammar","language arts","journalism","creative writing","stories","books","novel","composition","media studies","film studies"],
+  sciences: ["science","combined science","triple science","biology","bio","chemistry","chem","physics","anatomy","ecology","earth science","environmental science","environmental","lab","research","scientific","medicine","health","nursing"],
+  history: ["history","social studies","economics","econ","government","politics","government and politics","political","civics","geography","world history","psychology","psych","sociology","anthropology","culture"],
+  languages: ["spanish","french","german","chinese","mandarin","japanese","latin","arabic","korean","italian","foreign language","modern languages","mfl","language","linguistic"],
+  cs: ["computer","computing","computer science","digital technology","coding","programming","code","software","technology","tech","ai","machine learning","robotics","engineering","web","app","python","javascript","java","stem","data","btec it","btec digital"],
+  arts: ["art","design technology","dt","product design","graphic design","textiles","music","drawing","painting","theater","theatre","drama","film","photography","design","dance","visual","creative","sculpt","choir","band","orchestra","perform","studio"],
+  sports: ["sports","fitness","physical","gym","athletic","exercise","health","nutrition","coaching","pe","football","basketball","soccer","swimming","track","running","baseball","rugby","netball","cricket"],
+  epq: ["epq","extended project","extended project qualification"],
+  btec: ["btec","t-level","t level","vocational","applied"],
 };
 
 function parseSubjectsFromText(text) {
@@ -334,9 +337,9 @@ function getDemoInterest(interests) {
 }
 
 const TALKING_POINTS = [
-  "PwC research shows workers with AI skills earn 56% more than peers in the same role, across every industry. We want to make sure our child builds AI fluency alongside their primary interests.",
-  "Entry-level jobs are being disrupted fastest. Goldman Sachs data shows tech grad roles fell 46% in the UK in one year. We want to ensure our child has demonstrable skills before graduating.",
-  "The World Economic Forum projects 170 million new jobs created but 92 million displaced by 2030. We want to focus on careers that require human skills AI cannot replicate.",
+  "PwC projects up to 30% of UK jobs face high automation risk by the mid-2030s — but roles combining human judgment with technical skills are the most resilient. We want to make sure our child builds AI fluency alongside their primary interests.",
+  "UK graduates earn on average £11,500 more per year than non-graduates (DfE 2024). Entry-level and routine roles are being disrupted fastest by AI, so we want to ensure our child has demonstrable, hands-on skills before they finish their education, not just qualifications.",
+  "The World Economic Forum projects 170 million new jobs created but 92 million displaced globally by 2030. We want to focus on careers that require human skills AI cannot easily replicate.",
 ];
 
 /* ================================================================
