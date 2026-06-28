@@ -799,8 +799,8 @@ const AI_TOOLKIT = {
     title: "Start here: AI tools for career exploration",
     intro: "Great time to introduce your child to AI tools built for their age. These are the best places to begin.",
     tools: [
-      { name: "Coach by CareerVillage", what: "Free AI career coach built for high schoolers — explores options, builds resumes, preps for interviews", tag: "Free", url: "https://www.aicareercoach.org/high-school-students" },
-      { name: "O*NET Interest Profiler", what: "US Dept of Labor tool — maps interests to real career paths using the same model colleges and counselors use", tag: "Free", url: "https://www.mynextmove.org/explore/ip" },
+      { name: "Springpod", what: "Free UK careers platform with virtual work experience and a career quiz to explore directions based on interests and subjects", tag: "Free", url: "https://www.springpod.com" },
+      { name: "National Careers Service — Skills Assessment", what: "Free UK government tool that matches your interests and skills to career suggestions", tag: "Free", url: "https://nationalcareers.service.gov.uk/skills-assessment" },
       { name: "ChatGPT", what: "Ask it anything about a career — a typical day, what school subjects matter most, what skills employers look for", tag: "Free", url: "https://chatgpt.com" },
       { name: "Claude", what: "Great for nuanced career research — ask it to compare two careers, explain salary trajectories, or decode job postings", tag: "Free", url: "https://claude.ai" },
     ]
@@ -809,80 +809,80 @@ const AI_TOOLKIT = {
     title: "Explore your child's interests with AI",
     intro: "These tools go deeper on interest-to-career mapping — beyond simple quizzes.",
     tools: [
-      { name: "Career Explorer (Sokanu)", what: "Takes a 15-min interest quiz and surfaces careers ranked by match — includes day-in-the-life breakdowns", tag: "Free", url: "https://www.careerexplorer.com" },
-      { name: "Google Career Dreamer", what: "Google's free tool for connecting life experiences and interests to career paths — well-designed for students", tag: "Free", url: "https://grow.google/students" },
+      { name: "Khan Academy", what: "Free learning across subjects — useful for exploring whether an academic area genuinely interests you before committing at GCSE or A-level", tag: "Free", url: "https://www.khanacademy.org" },
+      { name: "Google AI Essentials", what: "Free Google course on using AI tools effectively — relevant to almost every career path", tag: "Free", url: "https://grow.google/intl/uk_ie/courses/ai-essentials/" },
       { name: "Perplexity AI", what: "Ask 'what careers combine [interest 1] and [interest 2]?' — gives sourced, current answers unlike a basic Google search", tag: "Free", url: "https://www.perplexity.ai" },
-      { name: "YouScience", what: "Aptitude-based assessment using neuroscience — uncovers natural talents beyond self-reported interests. Used by schools.", tag: "Paid (often school-provided)", url: "https://www.youscience.com" },
+      { name: "Morrisby", what: "Aptitude-based assessment used by UK schools — uncovers natural talents beyond self-reported interests", tag: "Paid (often school-provided)", url: "https://morrisby.com" },
     ]
   },
   3: { // Priority
     title: "AI tools to research career priorities",
     intro: "Help your child ground their priorities in real data — not assumptions.",
     tools: [
-      { name: "CareerOneStop (BLS)", what: "Dept of Labor tool with real salary, growth, and job outlook data for every career — searchable by priority", tag: "Free", url: "https://www.careeronestop.org" },
+      { name: "LMI for All", what: "UK labour market intelligence tool — search any occupation for real UK data on earnings, employment trends, and regional demand", tag: "Free", url: "https://www.lmiforall.org.uk" },
       { name: "LinkedIn (free tier)", what: "Search any job title — see how many postings exist, what skills are required, and what companies are hiring", tag: "Free", url: "https://www.linkedin.com/jobs" },
-      { name: "Glassdoor", what: "Real salary data from real workers — helps ground salary expectations before setting priorities", tag: "Free", url: "https://www.glassdoor.com" },
+      { name: "Glassdoor", what: "Real salary data from real workers — helps ground salary expectations before setting priorities", tag: "Free", url: "https://www.glassdoor.co.uk" },
       { name: "Claude or ChatGPT", what: "Ask: 'What careers have the highest job security AND salary for someone interested in [X]?' — great for priority tradeoffs", tag: "Free", url: "https://claude.ai" },
     ]
   },
   4: { // Tech comfort
     title: "Build AI fluency — free resources by level",
-    intro: "AI fluency is the #1 skill premium right now (PwC: +56% wages). Here's how to build it at every comfort level.",
+    intro: "AI fluency is one of the strongest skill premiums right now. Here's how to build it at every comfort level.",
     tools: [
-      { name: "Google's AI Essentials", what: "Free beginner course — learn how to use AI tools practically in everyday work and school tasks (no coding required)", tag: "Free", url: "https://grow.google/products/ai-essentials/" },
+      { name: "Google AI Essentials", what: "Free beginner course — learn how to use AI tools practically in everyday work and school tasks (no coding required)", tag: "Free", url: "https://grow.google/intl/uk_ie/courses/ai-essentials/" },
       { name: "Khan Academy + Khanmigo", what: "Free AI tutor for every subject — great for students who want to use AI to strengthen their weakest academic areas", tag: "Free", url: "https://www.khanacademy.org" },
       { name: "MIT OpenCourseWare (AI intro)", what: "Free MIT course materials — for students ready to go deeper into how AI actually works", tag: "Free", url: "https://ocw.mit.edu/search/?q=artificial+intelligence" },
-      { name: "GitHub Copilot (student)", what: "Free for verified students — AI coding assistant that teaches while you build. Best intro for hands-on learners.", tag: "Free (students)", url: "https://github.com/features/copilot/plans" },
+      { name: "GitHub Copilot (student)", what: "Free for verified students — AI coding assistant that teaches while you build", tag: "Free (students)", url: "https://github.com/features/copilot/plans" },
     ]
   },
   5: { // Concern
     title: "AI tools to address your specific career concerns",
     intro: "These tools provide data-backed answers to the questions parents and students worry about most.",
     tools: [
-      { name: "World Economic Forum Future of Jobs", what: "The actual research behind AI's job impact — searchable by industry. Counters fear with data.", tag: "Free", url: "https://www.weforum.org/reports/the-future-of-jobs-report-2025/" },
+      { name: "World Economic Forum Future of Jobs", what: "The actual research behind AI's job impact — searchable by industry. Counters fear with data.", tag: "Free", url: "https://www.weforum.org/publications/the-future-of-jobs-report-2025/" },
       { name: "Perplexity AI", what: "Ask it your exact concern — 'Will AI replace nurses?' or 'What happens to software jobs by 2030?' — sourced answers", tag: "Free", url: "https://www.perplexity.ai" },
-      { name: "ONET Online", what: "For any job: see exactly which tasks are at risk vs. which require human judgment. Data-backed, not opinion.", tag: "Free", url: "https://www.onetonline.org" },
-      { name: "Burning Glass / EMSI Lightcast", what: "Real-time labor market data used by universities and employers — shows actual hiring trends by career", tag: "Free (limited)", url: "https://lightcast.io/open-skills" },
+      { name: "National Careers Service — Job Profiles", what: "Free UK government job profiles covering entry requirements, typical tasks, salary ranges, and future outlook", tag: "Free", url: "https://nationalcareers.service.gov.uk/explore-careers" },
+      { name: "NotebookLM", what: "Upload reports and articles on career topics and ask questions across all of them — useful for making sense of conflicting information", tag: "Free", url: "https://notebooklm.google.com" },
     ]
   },
   6: { // Subjects
     title: "Turn academic strengths into career signals",
     intro: "AI tools that connect what your child is good at now to where that leads professionally.",
     tools: [
-      { name: "Naviance", what: "School-based platform that maps academic strengths to college programs and career paths — ask your counselor if your school uses it", tag: "Free (school-provided)", url: "https://www.naviance.com" },
+      { name: "Unifrog", what: "UK platform used by schools and colleges to connect subject choices to university courses and apprenticeships — ask your school if they have a licence", tag: "Free (school-provided)", url: "https://www.unifrog.org" },
       { name: "NotebookLM (Google)", what: "Upload class notes and ask 'what careers use skills from this subject?' — genuinely useful for subject-to-career bridging", tag: "Free", url: "https://notebooklm.google.com" },
       { name: "Claude", what: "Ask: 'My child excels at [subjects]. What careers use all three of these strengths?' — gets specific, ranked answers", tag: "Free", url: "https://claude.ai" },
-      { name: "Wolfram Alpha", what: "For math and science students — shows how mathematical concepts directly connect to engineering, physics, and research careers", tag: "Free (basic)", url: "https://www.wolframalpha.com" },
+      { name: "Wolfram Alpha", what: "For maths and science students — shows how mathematical concepts directly connect to engineering, physics, and research careers", tag: "Free (basic)", url: "https://www.wolframalpha.com" },
     ]
   },
   7: { // Activities
     title: "AI tools to amplify extracurriculars",
     intro: "Help your child see the career value in what they're already doing — and find ways to deepen it.",
     tools: [
-      { name: "LinkedIn (student profile)", what: "Create a student profile now — list activities, get a professional digital presence before college applications", tag: "Free", url: "https://www.linkedin.com" },
+      { name: "LinkedIn (student profile)", what: "Create a student profile now — list activities, get a professional digital presence before university applications", tag: "Free", url: "https://www.linkedin.com" },
       { name: "ChatGPT", what: "Paste your activity list and ask: 'Which of these activities are most relevant to [career]? What should I add?' — instant coaching", tag: "Free", url: "https://chatgpt.com" },
-      { name: "Handshake", what: "College-focused job and internship platform — students can browse to see what activities lead to which opportunities", tag: "Free", url: "https://joinhandshake.com" },
-      { name: "Common App Activities Section Guide", what: "AI-assisted tool for framing activities for college apps — transforms a list into a compelling narrative", tag: "Free", url: "https://www.commonapp.org/apply/essay-prompts" },
+      { name: "Prospects", what: "UK's leading graduate careers site with a degree apprenticeship search — see what activities lead to which opportunities", tag: "Free", url: "https://www.prospects.ac.uk" },
+      { name: "UCAS — Personal Statement Guidance", what: "Official UCAS guidance on framing activities and experience for your personal statement — transforms a list into a compelling narrative", tag: "Free", url: "https://www.ucas.com/undergraduate/applying-to-university/writing-your-personal-statement" },
     ]
   },
   8: { // Accomplishments
     title: "AI tools to document and showcase accomplishments",
-    intro: "The brag sheet is just the start. These tools help package accomplishments for colleges and employers.",
+    intro: "The brag sheet is just the start. These tools help package accomplishments for universities and employers.",
     tools: [
-      { name: "Teal (resume builder)", what: "AI-powered resume builder that helps students frame accomplishments in professional language — free for students", tag: "Free", url: "https://www.tealhq.com" },
-      { name: "Grammarly", what: "Paste any accomplishment description — it helps refine the language for applications, essays, and brag sheets", tag: "Free (basic)", url: "https://www.grammarly.com" },
-      { name: "ChatGPT", what: "Give it raw accomplishments and ask: 'Rewrite these as strong bullet points for a college application' — remarkable results", tag: "Free", url: "https://chatgpt.com" },
-      { name: "Scoir", what: "Free college planning platform that tracks accomplishments, activities, and connects them to college applications", tag: "Free", url: "https://www.scoir.com" },
+      { name: "Claude or ChatGPT", what: "Give it raw accomplishments and ask: 'Rewrite these as strong bullet points for a personal statement or CV' — remarkable results", tag: "Free", url: "https://claude.ai" },
+      { name: "Grammarly", what: "Paste any accomplishment description — it helps refine the language for applications, personal statements, and brag sheets", tag: "Free (basic)", url: "https://www.grammarly.com" },
+      { name: "LinkedIn", what: "Research professionals in roles you're targeting — their career paths show what accomplishments and experiences actually lead to those jobs", tag: "Free", url: "https://www.linkedin.com" },
+      { name: "Glassdoor", what: "Read honest reviews of employers and interview experiences — understand what companies actually value in candidates", tag: "Free", url: "https://www.glassdoor.co.uk" },
     ]
   },
   9: { // Final details
     title: "Get ready for the next step",
-    intro: "Tools to prepare for college counselor meetings, college research, and what comes after this playbook.",
+    intro: "Tools to prepare for careers adviser meetings, university research, and what comes after this playbook.",
     tools: [
-      { name: "College Board BigFuture", what: "Free college search with scholarship matching — filter by major, size, location, and financial aid", tag: "Free", url: "https://bigfuture.collegeboard.org" },
-      { name: "Niche.com", what: "Student reviews of colleges and careers — real perspectives that cut through the marketing", tag: "Free", url: "https://www.niche.com" },
-      { name: "FAFSA (studentaid.gov)", what: "Financial aid application — open it now to understand what to prepare. Don't wait until senior fall.", tag: "Free", url: "https://studentaid.gov/h/apply-for-aid/fafsa" },
-      { name: "Claude or ChatGPT", what: "Paste your playbook results and ask: 'Help me prepare questions for my college counselor meeting focused on [career]'", tag: "Free", url: "https://claude.ai" },
+      { name: "UCAS Course Search", what: "Official tool for searching every UK university course — entry requirements, course content, and application links in one place", tag: "Free", url: "https://www.ucas.com/explore" },
+      { name: "Discover Uni", what: "Official UK government tool comparing universities by graduate salary, employment rates, and student satisfaction", tag: "Free", url: "https://discoveruni.gov.uk" },
+      { name: "Student Finance England", what: "Official information on tuition fee loans, maintenance loans, and repayment terms — open it now to understand what to prepare", tag: "Free", url: "https://www.gov.uk/student-finance" },
+      { name: "Claude or ChatGPT", what: "Paste your playbook results and ask: 'Help me prepare questions for my careers adviser meeting focused on [career]'", tag: "Free", url: "https://claude.ai" },
     ]
   },
 };
