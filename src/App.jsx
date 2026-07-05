@@ -1521,7 +1521,7 @@ export default function App() {
 .Gc{text-align:center;max-width:440px;animation:fiu .5s ease}
 .Gi{margin-bottom:28px;display:flex;justify-content:center}
 .Gs{width:56px;height:56px;border:3px solid rgba(140,80,40,.15);border-top-color:var(--blue);border-radius:50%;animation:spin 1s linear infinite}
-.Gt{font-family:'Playfair Display',serif;font-size:26px;color:var(--text);margin-bottom:10px;font-weight:700}
+.Gt{font-family:'Inter',sans-serif;font-size:26px;color:var(--text);margin-bottom:10px;font-weight:700}
 .Gu{font-size:14px;color:var(--text-muted);margin-bottom:28px}
 .Gp{height:3px;background:var(--border-mid);border-radius:2px;margin-bottom:28px;overflow:hidden}
 .Gf{height:100%;background:var(--blue);transition:width .5s;border-radius:2px}
@@ -1531,7 +1531,7 @@ export default function App() {
 .RE{min-height:100vh}
 .Rh{position:sticky;top:0;z-index:10;padding:16px 24px;background:oklch(93% 0.006 75 / 0.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-mid)}
 .Ri{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.Rt{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);font-weight:700}
+.Rt{font-family:'Inter',sans-serif;font-size:22px;color:var(--text);font-weight:700}
 .Rsu{font-size:12px;color:var(--text-dim);margin-top:2px;font-family:'DM Mono',monospace}
 .Ra{display:flex;gap:8px}
 .Bn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--blue);color:oklch(99% 0 0);border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.02em;transition:all .2s}
@@ -1542,7 +1542,7 @@ export default function App() {
 
 /* Section headers */
 .section{margin-bottom:40px}
-.secTitle{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);margin-bottom:6px;font-weight:700}
+.secTitle{font-family:'Inter',sans-serif;font-size:22px;color:var(--text);margin-bottom:6px;font-weight:700}
 .secDesc{font-size:14px;color:var(--text-muted);margin-bottom:20px}
 
 /* Profile */
@@ -1578,7 +1578,7 @@ export default function App() {
 
 /* Brag Sheet */
 .bragBox{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:12px;padding:24px}
-.bragHeader{font-family:'Playfair Display',serif;font-size:17px;color:var(--text);padding-bottom:12px;border-bottom:1px solid var(--border-mid);margin-bottom:16px;font-weight:700}
+.bragHeader{font-family:'Inter',sans-serif;font-size:17px;color:var(--text);padding-bottom:12px;border-bottom:1px solid var(--border-mid);margin-bottom:16px;font-weight:700}
 
 /* Meeting Kit */
 .meetingKit{display:grid;gap:16px}
@@ -1591,7 +1591,7 @@ export default function App() {
 
 /* Concern */
 .concernBox{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:12px;padding:24px}
-.concernHead{font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px;font-family:'Playfair Display',serif}
+.concernHead{font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px;font-family:'Inter',sans-serif}
 .concernData{font-size:14px;color:oklch(75% 0.08 55);margin-bottom:16px;padding:12px;background:rgba(140,80,40,.06);border-radius:6px}
 .concernSteps{margin-top:4px}
 .csLabel{font-size:11px;color:var(--text-dim);margin-bottom:10px;font-weight:500;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
@@ -1605,7 +1605,7 @@ export default function App() {
 .allyBox{background:var(--bg-card);border:1px solid rgba(140,80,40,.25);border-radius:14px;padding:28px}
 .allyHeader{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
 .allyIcon{font-size:28px;color:var(--blue);flex-shrink:0;margin-top:2px}
-.allyTitle{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);font-weight:700;margin-bottom:6px}
+.allyTitle{font-family:'Inter',sans-serif;font-size:22px;color:var(--text);font-weight:700;margin-bottom:6px}
 .allySub{font-size:14px;color:var(--text-muted);line-height:1.6}
 .allyPhases{display:flex;flex-direction:column;gap:0}
 .allyPhase{border-top:1px solid var(--border-mid);padding:20px 0}
@@ -1619,14 +1619,14 @@ export default function App() {
 .allyFootnote{margin-top:24px;padding-top:20px;border-top:1px solid var(--border-mid);font-size:13px;color:var(--text-dim);line-height:1.7;font-style:italic}
 
 /* AI Rule */{background:var(--bg-card);border:1px solid rgba(140,80,40,.25);border-radius:12px;padding:24px}
-.arTitle{font-family:'Playfair Display',serif;font-size:20px;color:var(--text);margin-bottom:4px;font-weight:700}
+.arTitle{font-family:'Inter',sans-serif;font-size:20px;color:var(--text);margin-bottom:4px;font-weight:700}
 .arSub{font-size:12px;color:var(--blue);margin-bottom:14px;font-family:'DM Mono',monospace}
 .arInsight{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:12px}
 .arAction{font-size:14px;color:oklch(75% 0.08 55);font-weight:500}
 
 /* Footer */
 .Rf{margin-top:40px;padding:28px;background:rgba(140,80,40,.05);border:1px solid rgba(140,80,40,.15);border-radius:12px;text-align:center}
-.Rf h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--text);margin-bottom:8px;font-weight:700}
+.Rf h3{font-family:'Inter',sans-serif;font-size:20px;color:var(--text);margin-bottom:8px;font-weight:700}
 .Rf p{font-size:14px;color:var(--text-muted);margin-bottom:16px}
 .Rc{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:var(--blue);color:oklch(99% 0 0);border:none;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;font-family:'Inter',sans-serif;transition:all .2s}
 .Rc:hover{background:var(--blue-hover);transform:translateY(-1px)}
@@ -1639,7 +1639,7 @@ export default function App() {
   .no-print{display:none!important}
   .print-only{display:block!important}
   .print-header{text-align:center;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #2563EB}
-  .print-header h1{font-family:'Playfair Display',serif;font-size:24px;color:#0f172a;margin-bottom:4px}
+  .print-header h1{font-family:'Inter',sans-serif;font-size:24px;color:#0f172a;margin-bottom:4px}
   .print-header p{font-size:12px;color:#64748b}
   .print-footer{text-align:center;margin-top:32px;padding-top:16px;border-top:2px solid #2563EB;font-size:11px;color:#94a3b8}
   .RE,.Rb{padding:0!important}
@@ -1700,7 +1700,7 @@ export default function App() {
 .atkToggleLabel{font-size:13px;font-weight:600;color:var(--text);font-family:'DM Mono',monospace;letter-spacing:.04em}
 .atkToggleSub{font-size:12px;color:var(--text-dim)}
 .atkPanel{padding:16px;background:var(--bg-card);border-top:1px solid var(--border-mid)}
-.atkTitle{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+.atkTitle{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
 .atkIntro{font-size:13px;color:var(--text-muted);margin-bottom:14px;line-height:1.5}
 .atkTools{display:grid;gap:8px}
 .atkTool{display:block;padding:12px 14px;background:rgba(255,255,255,.02);border:1px solid var(--border-mid);border-radius:8px;text-decoration:none;transition:border-color .2s,background .2s}
