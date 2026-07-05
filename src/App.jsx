@@ -1697,7 +1697,7 @@ export default function App() {
 .atkToggle{width:100%;display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(140,80,40,.04);border:none;cursor:pointer;font-family:'Inter',sans-serif;text-align:left;transition:background .2s}
 .atkToggle:hover{background:rgba(140,80,40,.08)}
 .atkToggleIcon{font-size:11px;color:var(--blue);flex-shrink:0;width:12px}
-.atkToggleLabel{font-size:13px;font-weight:600;color:var(--text);font-family:'DM Mono',monospace;letter-spacing:.04em}
+.atkToggleLabel{font-size:13px;font-weight:600;color:var(--text);font-family:'Inter',sans-serif;letter-spacing:.04em}
 .atkToggleSub{font-size:12px;color:var(--text-dim)}
 .atkPanel{padding:16px;background:var(--bg-card);border-top:1px solid var(--border-mid)}
 .atkTitle{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
