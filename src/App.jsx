@@ -882,7 +882,7 @@ export default function App() {
         concernResponse: {
           headline: parsed.concern || "The data shows a path forward",
           data: "PwC found workers with AI skills earn 56% more in every industry. The premium doubled in 12 months.",
-          steps: ["Research the top career match from this playbook this week", "Have a conversation with your child using the talking points above", "Schedule a counselor meeting and bring this printed playbook"],
+          steps: ["Research the top career match from this playbook this week", "Have a conversation with your child using the talking points above", "Schedule a careers adviser meeting and bring this printed playbook"],
         },
         aiRule: {
           insight: parsed.aiTip || "Combining domain expertise with AI fluency is the highest-value career strategy in every field",
@@ -918,7 +918,7 @@ export default function App() {
         <div className="Wc">
           <div className="Wb">Free · 17 Research Sources · 35+ Careers Scored</div>
           <h1 className="Wh">Get Your Child's<br/><span className="Wa">AI-Proof Career Playbook</span></h1>
-          <p className="Ws">Answer a few questions about your child. Get a personalized, visual career strategy with a printable Student Profile you can take to your next college counselor meeting.</p>
+          <p className="Ws">Answer a few questions about your child. Get a personalized, visual career strategy with a printable Student Profile you can take to your next careers adviser meeting.</p>
           <div className="Wst">
             <div className="Wsi"><div className="Wn">$1.5M</div><div className="Wl">Lifetime gap: AI-fluent<br/>vs. non-AI-fluent workers</div></div>
             <div className="Wdv"/>
@@ -930,8 +930,8 @@ export default function App() {
           <div className="Ww">
             <div className="Wwi">✓ Visual AI Resistance Gauges for career matches</div>
             <div className="Wwi">✓ Year-by-Year Timeline with specific action items</div>
-            <div className="Wwi">✓ Printable Brag Sheet formatted for counselors</div>
-            <div className="Wwi">✓ College Counselor Meeting Kit with tailored questions</div>
+            <div className="Wwi">✓ Printable Brag Sheet formatted for careers advisers</div>
+            <div className="Wwi">✓ Careers Adviser Meeting Kit with tailored questions</div>
           </div>
           <p className="Wf">No login. No email. Completely free.<br/>Built by <strong>Babith Bhoopalan</strong> · Quantumleap Insights LLC</p>
         </div>
@@ -1053,7 +1053,7 @@ export default function App() {
           <p className="Gu">Analyzing your child's profile against 17 research sources...</p>
           <div className="Gp"><div className="Gf" style={{ width: `${progress}%` }}/></div>
           <div className="Gl">
-            {[["Matching AI-resistant careers", 8], ["Connecting activities to career paths", 25], ["Building year-by-year timeline", 42], ["Creating counselor meeting kit", 58], ["Generating brag sheet", 75], ["Rendering visual playbook", 90]].map(([t, v]) =>
+            {[["Matching AI-resistant careers", 8], ["Connecting activities to career paths", 25], ["Building year-by-year timeline", 42], ["Creating careers adviser meeting kit", 58], ["Generating brag sheet", 75], ["Rendering visual playbook", 90]].map(([t, v]) =>
               <div key={t} className={`Gx ${progress > v ? "on" : ""}`}>{progress > v ? "✓" : "○"} {t}</div>
             )}
           </div>
@@ -1151,7 +1151,7 @@ export default function App() {
           {/* ---- SECTION 5: Brag Sheet ---- */}
           <div className="section bragSheet">
             <h2 className="secTitle">Printable Brag Sheet</h2>
-            <p className="secDesc">Formatted for college counselors and recommendation letter writers. Print this page to bring to your next meeting.</p>
+            <p className="secDesc">Formatted for careers advisers and school reference writers. Print this page to bring to your next meeting.</p>
             <div className="bragBox">
               <div className="bragHeader">{a.studentName ? `${a.studentName}'s Brag Sheet` : "Student Brag Sheet"} · {gradeLabel} · {new Date().getFullYear()}</div>
               <BragRow label="Academic Strengths" items={subjectLabels} />
