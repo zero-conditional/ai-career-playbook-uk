@@ -1,25 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ================================================================
-   ANALYTICS — GA4 event helper
-   Safe to call even before GA loads (queues via dataLayer)
-   ================================================================ */
-function trackEvent(eventName, params = {}) {
-  try {
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", eventName, {
-        app: "ai_career_playbook",
-        ...params,
-      });
-    } else {
-      // Queue for when GA loads
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: eventName, app: "ai_career_playbook", ...params });
-    }
-  } catch (e) { /* never break the app over analytics */ }
-}
-
-/* ================================================================
    STATIC DATA & CAREER DATABASE
    ================================================================ */
 const GRADES = [
@@ -461,7 +442,6 @@ function VoiceCapture({ onTranscript }) {
     finalRef.current = "";
     recog.onstart = () => {
       setState("listening");
-      trackEvent("voice_recording_started", { context: "free_text" });
     };
     recog.onresult = (e) => {
       let interimText = "";
@@ -481,7 +461,6 @@ function VoiceCapture({ onTranscript }) {
       setInterim("");
       const captured = finalRef.current.length > 0;
       setState(captured ? "done" : "idle");
-      if (captured) trackEvent("voice_capture_completed", { context: "free_text", char_count: finalRef.current.length });
     };
     recogRef.current = recog;
     recog.start();
@@ -557,7 +536,6 @@ function VoiceSelect({ options, onSelect, matchKey = "label" }) {
     setInterim(""); setMatched(null); setErrMsg("");
     recog.onstart = () => {
       setState("listening");
-      trackEvent("voice_recording_started", { context: "choice_select" });
     };
     recog.onresult = (e) => {
       let interimText = "";
@@ -572,7 +550,6 @@ function VoiceSelect({ options, onSelect, matchKey = "label" }) {
             setMatched(match);
             onSelect(match.id);
             setState("matched");
-            trackEvent("voice_select_matched", { matched_option: match.id });
             return;
           }
         } else {
@@ -749,7 +726,6 @@ function AIToolkit({ step }) {
       <button className="atkToggle" onClick={() => {
         const next = !open;
         setOpen(next);
-        if (next) trackEvent("ai_toolkit_opened", { step });
       }}>
         <span className="atkToggleIcon">{open ? "▾" : "▸"}</span>
         <span className="atkToggleLabel">AI Toolkit for this step</span>
@@ -763,8 +739,7 @@ function AIToolkit({ step }) {
             {data.tools.map((tool, i) => {
               const ts = TAG_STYLE[tool.tag] || TAG_STYLE["Freemium"];
               return (
-                <a key={i} className="atkTool" href={tool.url} target="_blank" rel="noopener noreferrer"
-                  onClick={() => trackEvent("ai_toolkit_tool_clicked", { step, tool_name: tool.name, tool_tag: tool.tag })}>
+                <a key={i} className="atkTool" href={tool.url} target="_blank" rel="noopener noreferrer">
                   <div className="atkToolTop">
                     <span className="atkToolName">{tool.name}</span>
                     <span className="atkTag" style={{ background: ts.bg, color: ts.color }}>{tool.tag}</span>
@@ -807,13 +782,7 @@ export default function App() {
 
   const set = (k, v) => setA(p => ({ ...p, [k]: v }));
 
-  // Track step progression for funnel analysis
   const advanceStep = (nextStep) => {
-    trackEvent("playbook_step_completed", {
-      step_number: step,
-      step_name: ["welcome","grade","interests","priority","tech_comfort","concern","subjects","activities","accomplishments","final_details"][step] || `step_${step}`,
-      next_step: nextStep,
-    });
     setStep(nextStep);
   };
   const toggleInt = (id) => setA(p => ({ ...p, interests: p.interests.includes(id) ? p.interests.filter(x => x !== id) : p.interests.length < 3 ? [...p.interests, id] : p.interests }));
@@ -876,14 +845,6 @@ export default function App() {
   };
 
   const generate = async () => {
-    trackEvent("playbook_generate_clicked", {
-      grade: a.grade,
-      interests: a.interests.join(","),
-      priority: a.priority,
-      has_activities: a.activities.length > 0,
-      has_accomplishments: a.accomplishments.length > 0,
-      used_voice: a.subjectText.length > 0,
-    });
     setStep(10); setLoading(true); setError("");
     try {
       const res = await fetch("/api/generate", {
@@ -929,10 +890,6 @@ export default function App() {
         },
       };
       setProgress(100);
-      trackEvent("playbook_generated_success", {
-        grade: a.grade,
-        career_count: (fullPb.careers || []).length,
-      });
       setTimeout(() => { setPb(fullPb); setStep(11); setLoading(false); }, 400);
     } catch (err) {
       setError("Error: " + err.message);
@@ -983,7 +940,7 @@ export default function App() {
       {/* ============ ASSESSMENT ============ */}
       {step >= 1 && step <= 9 && <div className="A">
         <div className="Ah">
-          <button className="Abk" onClick={() => { trackEvent("playbook_step_back", { from_step: step }); setStep(s => s - 1); }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+          <button className="Abk" onClick={() => { setStep(s => s - 1); }}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
           <div className="Ap"><div className="Afl" style={{ width: `${progressPct}%` }}/></div>
           <span className="Asl">{step}/{TOTAL_STEPS}</span>
         </div>
