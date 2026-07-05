@@ -914,26 +914,47 @@ export default function App() {
 
       {/* ============ WELCOME ============ */}
       {step === 0 && <div className="W">
-        <div className="Wo o1"/><div className="Wo o2"/><div className="Wo o3"/>
-        <div className="Wc">
-          <div className="Wb">Free · 17 Research Sources · 35+ Careers Scored</div>
-          <h1 className="Wh">Get Your Child's<br/><span className="Wa">AI-Proof Career Playbook</span></h1>
-          <p className="Ws">Answer a few questions about your child. Get a personalized, visual career strategy with a printable Student Profile you can take to your next careers adviser meeting.</p>
-          <div className="Wst">
-            <div className="Wsi"><div className="Wn">$1.5M</div><div className="Wl">Lifetime gap: AI-fluent<br/>vs. non-AI-fluent workers</div></div>
-            <div className="Wdv"/>
-            <div className="Wsi"><div className="Wn">56%</div><div className="Wl">Wage premium for<br/>AI skills, every industry</div></div>
-            <div className="Wdv"/>
-            <div className="Wsi"><div className="Wn">46%</div><div className="Wl">Drop in UK tech grad<br/>roles in one year</div></div>
+        <div className="Wcard">
+          <div className="Wc">
+            <span className="Wb">Free &nbsp;·&nbsp; 20+ research sources &nbsp;·&nbsp; 32 careers scored</span>
+
+            <h1 className="Wh">
+              Get Your Child's<br/>
+              <span className="Wa">AI-Ready Career Playbook</span>
+            </h1>
+
+            <p className="Ws">Answer a few questions about your child. Get a personalised, visual career strategy with a printable Student Profile you can take to your next careers adviser meeting.</p>
+
+            <div className="Wst">
+              <div className="Wsi">
+                <div className="Wn">£500K+</div>
+                <div className="Wl">Lifetime earnings gap between highest and lowest returning degree subjects (IFS)</div>
+              </div>
+              <div className="Wsdv"></div>
+              <div className="Wsi">
+                <div className="Wn">56%</div>
+                <div className="Wl">Wage premium for AI skills, every industry (PwC, 2025)</div>
+              </div>
+              <div className="Wsdv"></div>
+              <div className="Wsi">
+                <div className="Wn">46%</div>
+                <div className="Wl">Drop in UK tech grad roles in one year (ISE, 2025)</div>
+              </div>
+            </div>
+
+            <button className="Cb" onClick={() => setStep(1)}>Build My Playbook <span>→</span></button>
+
+            <div className="Ww">
+              <div className="Wwg">
+                <div className="Wwi">Visual AI Resistance Gauges for career matches</div>
+                <div className="Wwi">Year-by-Year Timeline with specific action items</div>
+                <div className="Wwi">Printable Brag Sheet formatted for careers advisers</div>
+                <div className="Wwi">Careers Adviser Meeting Kit with tailored questions</div>
+              </div>
+            </div>
+
+            <div className="Wf">No login. No email. Completely free.<br/>AI Career Playbook UK · Zero Conditional</div>
           </div>
-          <button className="Cb" onClick={() => setStep(1)}>Build My Playbook <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-          <div className="Ww">
-            <div className="Wwi">✓ Visual AI Resistance Gauges for career matches</div>
-            <div className="Wwi">✓ Year-by-Year Timeline with specific action items</div>
-            <div className="Wwi">✓ Printable Brag Sheet formatted for careers advisers</div>
-            <div className="Wwi">✓ Careers Adviser Meeting Kit with tailored questions</div>
-          </div>
-          <p className="Wf">No login. No email. Completely free.<br/>AI Career Playbook UK · Zero Conditional</p>
         </div>
       </div>}
 
@@ -1414,25 +1435,27 @@ export default function App() {
 .R{font-family:'Inter',sans-serif;min-height:100vh}
 
 /* Welcome */
-.W{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:40px 24px}
-.Wo{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
-.o1{width:600px;height:600px;top:-200px;left:-100px;background:rgba(37,99,235,.07);animation:fl 20s infinite}
-.o2{width:400px;height:400px;bottom:-100px;right:-50px;background:rgba(59,130,246,.05);animation:fl2 25s infinite}
-.o3{width:300px;height:300px;top:40%;left:60%;background:rgba(37,99,235,.04);animation:fl 30s infinite reverse}
-.Wc{position:relative;z-index:1;text-align:center;max-width:700px}
-.Wb{display:inline-block;padding:7px 18px;border-radius:24px;font-size:11px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;color:#93c5fd;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);margin-bottom:28px;font-family:'DM Mono',monospace}
-.Wh{font-family:'Playfair Display',serif;font-size:clamp(32px,5.5vw,52px);line-height:1.1;font-weight:800;color:var(--text);margin-bottom:18px}
-.Wa{background:linear-gradient(135deg,var(--blue),var(--blue-glow));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.Ws{font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:32px;font-weight:400;max-width:560px;margin-left:auto;margin-right:auto}
-.Wst{display:flex;align-items:center;justify-content:center;gap:28px;margin-bottom:36px;flex-wrap:wrap}
-.Wsi{text-align:center}.Wn{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;color:var(--text)}
-.Wl{font-size:12px;color:var(--text-dim);max-width:160px;margin-top:4px;line-height:1.4}
-.Wdv{width:1px;height:40px;background:rgba(255,255,255,.08)}
-.Cb{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-size:16px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.02em;transition:all .2s;margin-bottom:28px;box-shadow:0 4px 20px rgba(37,99,235,.3)}
-.Cb:hover{background:var(--blue-hover);transform:translateY(-1px);box-shadow:0 6px 28px rgba(37,99,235,.4)}
-.Ww{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-bottom:28px}
-.Wwi{font-size:13px;color:var(--text-dim);font-weight:400}
-.Wf{font-size:12px;color:var(--text-dim);line-height:1.6}.Wf strong{color:var(--text-muted)}
+.W{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:56px 24px;box-sizing:border-box;background:oklch(93% 0.006 75);font-family:'Inter',sans-serif;}
+.Wcard{width:100%;max-width:860px;background:oklch(96% 0.012 75);border-radius:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.2);overflow:hidden;border:1px solid oklch(88% 0.015 75);}
+.Wc{padding:88px 64px 56px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.Wb{display:inline-block;background:oklch(91% 0.03 60);border:1px solid oklch(82% 0.05 60);color:oklch(38% 0.09 55);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:8px 16px;border-radius:6px;margin-bottom:28px;}
+.Wh{margin:0;font-family:'Inter',sans-serif;font-weight:800;font-size:clamp(32px,5.5vw,52px);line-height:1.15;color:oklch(28% 0.015 75);margin-bottom:18px;}
+.Wa{color:oklch(52% 0.13 55);}
+.Ws{margin:22px 0 0;max-width:600px;font-size:18px;line-height:1.65;color:oklch(45% 0.015 75);font-weight:400;}
+.Wst{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;width:100%;max-width:640px;border:1px solid oklch(88% 0.015 75);border-radius:10px;overflow:hidden;background:oklch(98% 0.006 75);}
+.Wsi{padding:20px 16px;border-right:1px solid oklch(88% 0.015 75);}
+.Wsi:last-child{border-right:none;}
+.Wsdv{display:none;}
+.Wn{font-size:32px;font-weight:800;color:oklch(28% 0.015 75);font-variant-numeric:tabular-nums;}
+.Wl{font-size:12px;color:oklch(45% 0.015 75);margin-top:6px;line-height:1.4;}
+.Cb{margin-top:40px;background:oklch(52% 0.13 55);color:oklch(99% 0 0);border:none;font-size:17px;font-weight:700;padding:18px 38px;border-radius:8px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:0;}
+.Cb:hover{background:oklch(47% 0.13 55);}
+.Ww{margin-top:36px;width:100%;max-width:640px;}
+.Wwg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid oklch(88% 0.015 75);border-radius:10px;overflow:hidden;background:oklch(98% 0.006 75);}
+.Wwi{text-align:left;padding:14px 16px;font-size:14px;color:oklch(45% 0.015 75);border-right:1px solid oklch(88% 0.015 75);border-bottom:1px solid oklch(88% 0.015 75);}
+.Wwi:nth-child(even){border-right:none;}
+.Wwi:nth-last-child(-n+2){border-bottom:none;}
+.Wf{margin-top:36px;font-size:13px;color:oklch(45% 0.015 75);opacity:0.85;line-height:1.6;border-top:1px solid oklch(88% 0.015 75);padding-top:16px;width:100%;max-width:400px;}
 
 /* Assessment */
 .A{min-height:100vh;display:flex;flex-direction:column}
