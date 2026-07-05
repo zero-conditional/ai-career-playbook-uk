@@ -86,7 +86,7 @@ const CONCERNS = [
   { id: "entry_level", label: "Entry-level jobs are disappearing before my kid graduates" },
   { id: "ai_replace", label: "AI will make their chosen field obsolete" },
   { id: "no_direction", label: "My child has no idea what they want to do" },
-  { id: "debt_roi", label: "University costs won't pay off in this economy" },
+  { id: "debt_roi", label: "Will my child's degree pay off financially?", desc: "On average, a UK degree delivers a positive lifetime return — but subject matters enormously. IFS analysis of government LEO data shows net lifetime earnings ranging from negative returns for Social Care and Creative Arts graduates, to over £1,000,000 for Economics and Medicine. One in five graduates would have been better off financially without a degree. Which subject and career path matters far more than the decision to go to university itself. Source: IFS 'The impact of undergraduate degrees on lifetime earnings' (2020), using DfE Longitudinal Education Outcomes (LEO) data." },
   { id: "too_late", label: "We are already behind and don't know where to start" },
 ];
 
@@ -1183,6 +1183,7 @@ export default function App() {
             <div className="Ol">{CONCERNS.map(c => <button key={c.id} className={`Ob ${a.concern === c.id ? "s" : ""}`} onClick={() => set("concern", c.id)}>
               <span className="Or">{a.concern === c.id ? "◉" : "○"}</span>{c.label}
             </button>)}</div>
+            {CONCERNS.map(c => a.concern === c.id && c.desc && <p key={c.id} className="Qd" style={{marginTop:"8px",fontSize:"13px"}}>{c.desc}</p>)}
             <VoiceSelect options={CONCERNS} onSelect={(id) => set("concern", id)} currentValue={a.concern} />
           </div>}
 
