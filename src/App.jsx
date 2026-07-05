@@ -1467,7 +1467,7 @@ export default function App() {
 .Aby{flex:1;display:flex;flex-direction:column;align-items:center;padding:40px 24px 100px}
 .Q{max-width:580px;width:100%;animation:fiu .4s ease}
 .Qn{font-family:'DM Mono',monospace;font-size:11px;color:var(--blue);font-weight:500;margin-bottom:10px;letter-spacing:.1em;text-transform:uppercase}
-.Qt{font-family:'Playfair Display',serif;font-size:28px;color:var(--text);font-weight:700;margin-bottom:8px;line-height:1.2}
+.Qt{font-family:'Inter',sans-serif;font-size:28px;color:var(--text);font-weight:700;margin-bottom:8px;line-height:1.2}
 .Qd{font-size:15px;color:var(--text-muted);margin-bottom:28px;font-weight:400}
 .Qh{font-size:13px;color:var(--text-dim);margin-top:12px;text-align:center}
 .Qh2{font-size:13px;color:var(--text-dim);margin-top:8px;font-style:italic}
