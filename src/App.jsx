@@ -187,13 +187,15 @@ function buildPrompt(a) {
 
   return `Return ONLY valid JSON. No markdown. No backticks. Start with { end with }. All strings under 80 chars. No special characters in values.
 
-Student: ${a.grade} grade, interests: ${interestLabels}, priority: ${a.priority}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
+Student: ${a.grade} year group, interests: ${interestLabels}, priority: ${a.priority}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
 
-Careers DB: Counselor 98%, Firefighter 97%, Physician 96%, Diplomat 95%, NP 94%, Electrician 94%, Social Worker 93%, Renewable Tech 92%, Cybersecurity 88%, Creative Dir 85%, Robotics 85%, Trial Lawyer 82%, AI Engineer 78%, UX 78%, Fin Advisor 76%, Software Dev 62%, Accountant 45%
+Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Software Developer 62%, Accountant 45%
 
-{"careers":[{"n":"career name","s":88,"f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["counselor question"],"concern":"response to: ${concernLabel}","aiTip":"how to combine their interests with AI skills"}
+Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/BTECs/T-Levels/UCAS, university not college, careers adviser not counselor.
 
-5 careers, 3 buildOn, 5 qs. Be specific to this student.`;
+{"careers":[{"n":"career name","s":88,"f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to: ${concernLabel}","aiTip":"how to combine their interests with AI skills"}
+
+5 careers, 3 buildOn, 5 qs. Be specific to this student. All salary references in GBP.`;
 }
 
 // ---- Client-side template generators (no API cost) ----
