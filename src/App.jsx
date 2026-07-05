@@ -1165,10 +1165,10 @@ export default function App() {
             </div>
           </div>
 
-          {/* ---- SECTION 6: Counselor Meeting Kit (Rich Version) ---- */}
+          {/* ---- SECTION 6: Careers Adviser Meeting Kit (Rich Version) ---- */}
           <div className="section">
-            <h2 className="secTitle">College Counselor Meeting Kit</h2>
-            <p className="secDesc">Walk in prepared. Most counselors manage 300–500 students. The parents who get the most help are the ones who come ready.</p>
+            <h2 className="secTitle">Careers Adviser Meeting Kit</h2>
+            <p className="secDesc">Walk in prepared. Most careers advisers support hundreds of students. The parents who get the most help are the ones who come ready.</p>
             <div className="meetingKit">
 
               {/* BRING */}
@@ -1176,40 +1176,41 @@ export default function App() {
                 <div className="mkLabel">📋 What to Bring</div>
                 <div className="mkItems">
                   <div className="mkItem">✓ This printed playbook — student profile + career matches on top</div>
-                  <div className="mkItem">✓ Unofficial transcript (counselors need to see the full grade trajectory)</div>
+                  <div className="mkItem">✓ Latest school report and predicted grades (the adviser needs to see the full trajectory)</div>
+                  <div className="mkItem">✓ GCSE results (or predicted GCSE grades if not yet sat)</div>
                   <div className="mkItem">✓ Printed Brag Sheet from above — formatted exactly how they expect it</div>
-                  <div className="mkItem">✓ Any test scores: PSAT, SAT, ACT, AP exam results</div>
-                  <div className="mkItem">✓ A short college list — even 5–10 early ideas shows you're serious</div>
+                  <div className="mkItem">✓ A short shortlist of course and university ideas — even 5–10 early ideas shows you're serious</div>
                   <div className="mkItem">✓ One paragraph about who your child is beyond grades — written in advance</div>
                 </div>
               </div>
 
               {/* UNDERSTANDING THE STUDENT */}
               <div className="mkSection">
-                <div className="mkLabel">🎓 Questions the Counselor Will Ask You — Be Ready</div>
-                <div className="mkSub">Counselors use the first meeting to build a student profile. Prepare your child for these:</div>
+                <div className="mkLabel">🎓 Questions the Adviser Will Ask You — Be Ready</div>
+                <div className="mkSub">Advisers use the first meeting to build a student profile. Prepare your child for these:</div>
                 <div className="mkItems">
                   <div className="mkItem question">What subjects do you genuinely enjoy — not just the ones you're good at?</div>
-                  <div className="mkItem question">What do you do outside of school that you'd do even if it wasn't on a college application?</div>
-                  <div className="mkItem question">Is there a college size, location, or campus culture you're drawn to — or want to avoid?</div>
+                  <div className="mkItem question">What do you do outside of school that you'd do even if it wasn't on a UCAS application?</div>
+                  <div className="mkItem question">Is there a university size, location, or campus culture you're drawn to — or want to avoid?</div>
                   <div className="mkItem question">Have you thought about what you want to study, or does that feel too early to decide?</div>
-                  <div className="mkItem question">What does your family's financial picture look like — are we working with a budget range?</div>
-                  <div className="mkItem question">Are there any learning differences, accommodations, or personal circumstances we should factor in?</div>
-                  <div className="mkItem question">Where do you see yourself in 10 years — even a rough direction helps us think about majors and programs.</div>
+                  <div className="mkItem question">Are you open to degree apprenticeships and employment routes, or set on university?</div>
+                  <div className="mkItem question">What does your family's financial picture look like — are we working with a budget for living costs?</div>
+                  <div className="mkItem question">Are there any learning differences, access arrangements, or personal circumstances we should factor in?</div>
+                  <div className="mkItem question">Where do you see yourself in 10 years — even a rough direction helps us think about courses and pathways.</div>
                 </div>
               </div>
 
               {/* TAILORED QUESTIONS FROM AI */}
               <div className="mkSection">
-                <div className="mkLabel">❓ Your Questions for the Counselor — Tailored to {a.studentName || "Your Child"}</div>
+                <div className="mkLabel">❓ Your Questions for the Adviser — Tailored to {a.studentName || "Your Child"}</div>
                 <div className="mkSub">These are smart, informed questions based on the playbook profile. Use them to lead, not just react.</div>
                 <div className="mkItems">
                   {pb.counselorQs?.map((q, i) => <div key={i} className="mkItem question">{i + 1}. {q}</div>)}
-                  <div className="mkItem question">{pb.careers?.[0]?.name ? `Is ${pb.careers[0].name} a path you've seen students pursue successfully? What does that pipeline look like from our high school?` : "What paths have students with similar profiles pursued successfully from our school?"}</div>
-                  <div className="mkItem question">How many college counselor meetings can we expect, and what's the best way to stay in contact between them?</div>
-                  <div className="mkItem question">Will you be writing the counselor recommendation letter? What helps you write a strong one — what do you need to know about my child that isn't on the transcript?</div>
-                  <div className="mkItem question">Can we see the school profile that gets sent to colleges? We want to understand the context our child's application is read in.</div>
-                  <div className="mkItem question">Given where my child is right now, what one thing should they do this semester that would most improve their application?</div>
+                  <div className="mkItem question">{pb.careers?.[0]?.name ? `Is ${pb.careers[0].name} a path you've seen students pursue successfully? What does that route look like from our school?` : "What routes have students with similar profiles pursued successfully from our school?"}</div>
+                  <div className="mkItem question">How many careers adviser meetings can we expect, and what's the best way to stay in contact between them?</div>
+                  <div className="mkItem question">Who writes the school reference, and what do you need to know about my child that isn't in their grades?</div>
+                  <div className="mkItem question">Given where my child is right now, what one thing should they do this term that would most improve their application?</div>
+                  <div className="mkItem question">Which degree apprenticeships or employers are worth looking at alongside university for this profile?</div>
                 </div>
               </div>
 
@@ -1217,18 +1218,18 @@ export default function App() {
               <div className="mkSection">
                 <div className="mkLabel">📚 Academic Planning — What to Settle in This Meeting</div>
                 <div className="mkItems">
-                  <div className="mkItem">→ Is the current course rigor (AP/IB/Honors) appropriate for the target schools? What should change next year?</div>
-                  <div className="mkItem">→ What is the school's policy on Ds or Ws on the transcript — and are there any red flags to address now?</div>
-                  <div className="mkItem">→ SAT or ACT — which does this counselor recommend for this student's profile? When should they test?</div>
-                  <div className="mkItem">→ Are there AP exams worth taking even without the class, given the career direction?</div>
-                  <div className="mkItem">→ What's the strongest senior year schedule that doesn't cause burnout before applications are due?</div>
+                  <div className="mkItem">→ Are the current subject choices (A-levels / BTEC / T-Level) appropriate for the target courses? What should change?</div>
+                  <div className="mkItem">→ Are the predicted grades on track for the entry requirements of the shortlisted courses — and are there any concerns to address now?</div>
+                  <div className="mkItem">→ Does this course/university path need an admissions test (e.g. UCAT for medicine, LNAT for law, or an Oxbridge test)? When should they sit it?</div>
+                  <div className="mkItem">→ Is an EPQ worth taking, given the career direction and the universities being considered?</div>
+                  <div className="mkItem">→ What's the strongest Year 13 workload that doesn't cause burnout before the UCAS deadline?</div>
                 </div>
               </div>
 
               {/* AI & CAREERS TALKING POINTS */}
               <div className="mkSection">
                 <div className="mkLabel">💬 Talking Points — AI & Career Planning</div>
-                <div className="mkSub">Most counselors haven't had this conversation with parents yet. Lead it confidently.</div>
+                <div className="mkSub">Most advisers haven't had this conversation with parents yet. Lead it confidently.</div>
                 <div className="mkItems">
                   {pb.talkingPoints?.map((tp, i) => <div key={i} className="mkItem tp">→ {tp}</div>)}
                   <div className="mkItem tp">→ WEF projects 170M new jobs by 2030 alongside 92M displaced — net positive, but the new jobs require different preparation than we've historically focused on.</div>
@@ -1237,14 +1238,15 @@ export default function App() {
                 </div>
               </div>
 
-              {/* RECOMMENDATION LETTER */}
+              {/* SCHOOL REFERENCE */}
               <div className="mkSection">
-                <div className="mkLabel">✉️ Recommendation Letter Strategy</div>
+                <div className="mkLabel">✉️ School Reference Strategy</div>
+                <div className="mkSub">UCAS uses a single school reference — usually from a form tutor or head of year, not several teacher letters.</div>
                 <div className="mkItems">
-                  <div className="mkItem">→ Ask explicitly: "What information can we give you so the letter feels personal, not generic?"</div>
-                  <div className="mkItem">→ Offer to complete a parent questionnaire if the counselor provides one — fill it in specific stories, not adjectives.</div>
-                  <div className="mkItem">→ Identify 2–3 teacher recommenders now, even if the ask is months away. Relationships take time.</div>
-                  <div className="mkItem">→ Ask how far in advance they need the recommendation request — many counselors need 6–8 weeks minimum.</div>
+                  <div className="mkItem">→ Ask explicitly: "What information can we give you so the reference feels personal, not generic?"</div>
+                  <div className="mkItem">→ Offer to share specific stories and achievements the referee might not otherwise know — in detail, not adjectives.</div>
+                  <div className="mkItem">→ Check which subject teachers contribute predicted grades and comments, and make sure they know your child well.</div>
+                  <div className="mkItem">→ Ask how far in advance they need everything to write a strong reference before the UCAS deadline.</div>
                 </div>
               </div>
 
@@ -1253,8 +1255,8 @@ export default function App() {
                 <div className="mkLabel">📝 After the Meeting — Within 48 Hours</div>
                 <div className="mkItems">
                   <div className="mkItem">□ Send a brief thank-you email — include your child's name and one thing you appreciated from the conversation</div>
-                  <div className="mkItem">□ Write down the 3 most important action items the counselor gave you before you forget</div>
-                  <div className="mkItem">□ Update the Brag Sheet with any accomplishments or activities the counselor suggested highlighting</div>
+                  <div className="mkItem">□ Write down the 3 most important action items the adviser gave you before you forget</div>
+                  <div className="mkItem">□ Update the Brag Sheet with any accomplishments or activities the adviser suggested highlighting</div>
                   <div className="mkItem">□ Book the next meeting before you leave or within 24 hours — don't let scheduling drift</div>
                   <div className="mkItem">□ Share the key takeaways with your child — frame it as "here's what we learned" not "here's what you need to do"</div>
                   <div className="mkItem">□ Share this playbook with your co-parent or partner so you're aligned on next steps</div>
