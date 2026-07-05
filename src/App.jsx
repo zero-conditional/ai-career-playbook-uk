@@ -1277,107 +1277,104 @@ export default function App() {
             </div>
           </div>}
 
-          {/* ---- PARENT AS THE ALLY MODEL ---- */}
+          {/* ---- SUPPORTING YOUR CHILD THROUGH THE UK EDUCATION SYSTEM ---- */}
           <div className="section">
             <div className="allyBox">
               <div className="allyHeader">
                 <div className="allyIcon">◈</div>
                 <div>
-                  <div className="allyTitle">The Parent as the Ally Model</div>
-                  <div className="allySub">Your role isn't to manage the process — it's to make your child capable of managing it themselves. Here's the roadmap by phase.</div>
+                  <div className="allyTitle">Supporting Your Child Through the UK Education System</div>
+                  <div className="allySub">Your role is to stay informed, ask the right questions, and help your child make decisions with confidence — not to manage the process for them. Here is what matters at each stage.</div>
                 </div>
               </div>
-
               <div className="allyPhases">
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">Now → End of This School Year</span>
-                    <span className="allyPhaseName">Foundation Phase — Plant the Seeds</span>
+                    <span className="allyPhaseTag">Years 7 &amp; 8</span>
+                    <span className="allyPhaseName">Laying the Groundwork</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>Have one honest conversation about AI and careers — share this playbook as a starting point, not a directive. The goal is curiosity, not pressure.</div>
-                    <div className="allyItem"><span className="allyDot"/>Help them build a simple "accomplishments log" — a running Google Doc where they note anything worth remembering: awards, projects, volunteer hours, moments of pride. This becomes the brag sheet.</div>
-                    <div className="allyItem"><span className="allyDot"/>Research the top 2–3 career matches together. Spend 30 minutes finding one person on LinkedIn who does that job. Read their path. Make it real.</div>
-                    <div className="allyItem"><span className="allyDot"/>Get clarity on your family's financial parameters. Have the honest money conversation now — before your child falls in love with a school. Know your FAFSA situation and roughly what you can afford.</div>
-                    <div className="allyItem"><span className="allyDot"/>Establish your role explicitly: "I'm here to help you think, not to do this for you." Research consistently shows students whose parents support without controlling have better outcomes and less anxiety.</div>
+                    <div className="allyItem"><span className="allyDot"/>Encourage broad curiosity — this is not the time to specialise. Exposure to a wide range of subjects, activities, and experiences is the goal.</div>
+                    <div className="allyItem"><span className="allyDot"/>Start conversations about what your child enjoys and is good at — not what they want to "be", but what kinds of problems they like solving and what activities make time pass quickly.</div>
+                    <div className="allyItem"><span className="allyDot"/>Introduce the Duke of Edinburgh Award if the school offers it at this stage — Bronze can begin from age 14.</div>
+                    <div className="allyItem"><span className="allyDot"/>Visit careers fairs, science fairs, and open days at local colleges and universities — low-stakes exposure that builds familiarity with options that are still years away.</div>
+                    <div className="allyItem"><span className="allyDot"/>Use free tools like the National Careers Service (nationalcareers.service.gov.uk) to explore what different jobs actually involve day-to-day.</div>
                   </div>
                 </div>
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">This Summer</span>
-                    <span className="allyPhaseName">Exploration Phase — Build Real Exposure</span>
+                    <span className="allyPhaseTag">Year 9</span>
+                    <span className="allyPhaseName">Choosing GCSE Options</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>Help them find one summer experience connected to their top career match — a volunteer role, shadow opportunity, summer program, or part-time job. The experience matters less than the reflection it creates.</div>
-                    <div className="allyItem"><span className="allyDot"/>Plan 2–3 college visits — even informally. Walking a campus does something a website cannot. Mix sizes: one large research university, one mid-size, one small. The contrast is instructive.</div>
-                    <div className="allyItem"><span className="allyDot"/>Encourage them to start a "college notes" doc — impressions from each visit, what felt right, what didn't. Their instincts matter and this data gets useful later.</div>
-                    <div className="allyItem"><span className="allyDot"/>Introduce them to one professional in a field they're considering. This doesn't require connections — a LinkedIn message to a local professional with a specific question gets a reply more often than you'd think.</div>
+                    <div className="allyItem"><span className="allyDot"/>GCSE options are typically chosen between January and March of Year 9 — this is the first genuinely consequential academic decision your child will make.</div>
+                    <div className="allyItem"><span className="allyDot"/>Attend your school's Options Evening (usually January or February) — come prepared with questions about which subjects lead where, not just which subjects your child enjoys.</div>
+                    <div className="allyItem"><span className="allyDot"/>Maths and English are compulsory. Beyond that, a balanced set — a science, a humanity, a language, and a creative or technical subject — keeps future options open.</div>
+                    <div className="allyItem"><span className="allyDot"/>Avoid over-specialising at this stage. Dropping a subject at 13 can close doors at 16 that are difficult to reopen.</div>
+                    <div className="allyItem"><span className="allyDot"/>Talk to the school careers adviser before submitting the options form — they can flag subject combinations that may limit specific post-16 or university routes.</div>
+                    <div className="allyItem"><span className="allyDot"/>The options form is usually submitted February to March; final timetables are confirmed in the summer term.</div>
                   </div>
                 </div>
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">Junior Year — Fall Semester</span>
-                    <span className="allyPhaseName">Strategy Phase — Get Serious Without Panic</span>
+                    <span className="allyPhaseTag">Years 10 &amp; 11</span>
+                    <span className="allyPhaseName">GCSEs and the Post-16 Decision</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>Book the college counselor meeting. Bring this playbook. Use the Meeting Kit in this document. Most parents come empty-handed — you won't.</div>
-                    <div className="allyItem"><span className="allyDot"/>Build the college list together: 3–4 reach schools, 4–5 target schools, 3–4 safety schools. A good safety school is one they'd genuinely be happy to attend — not a punishment.</div>
-                    <div className="allyItem"><span className="allyDot"/>Register for the PSAT (October) and plan the SAT/ACT timeline. Most students test 2–3 times. Schedule it now so it doesn't sneak up.</div>
-                    <div className="allyItem"><span className="allyDot"/>Identify teacher recommenders. These relationships take time. Encourage your child to connect genuinely with 2–3 teachers whose classes they've taken this year — not just to get a letter, but because those teachers will write better letters for students they actually know.</div>
-                    <div className="allyItem"><span className="allyDot"/>Your job: logistics and calm. Handle the calendar, the reminders, the test registration. Your child's job: the academic performance and the authentic story. Don't cross the line.</div>
+                    <div className="allyItem"><span className="allyDot"/>Year 10 is when consistent study habits matter most — the groundwork laid now directly affects Year 11 results.</div>
+                    <div className="allyItem"><span className="allyDot"/>Organise work experience in Year 10 if the school does not arrange it — NHS trusts, law firms, engineering companies, and creative agencies all accept school students. Contact them directly.</div>
+                    <div className="allyItem"><span className="allyDot"/>Begin researching post-16 options during Year 10: A-levels (typically 3 subjects, academic), BTECs (vocational, coursework-based), T-Levels (technical, include a substantial industry placement), or a Level 3 Apprenticeship (earn while you learn).</div>
+                    <div className="allyItem"><span className="allyDot"/>GCSE Results Day is in late August of Year 11 — have a confirmed post-16 place and a backup option before results day, not after.</div>
+                    <div className="allyItem"><span className="allyDot"/>Applications to sixth forms, FE colleges, and apprenticeship programmes typically open in autumn/winter of Year 11 — do not leave this until after GCSEs.</div>
+                    <div className="allyItem"><span className="allyDot"/>By law, young people in England must remain in education or training until age 18 — the question is which route, not whether.</div>
                   </div>
                 </div>
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">Junior Year — Spring Semester</span>
-                    <span className="allyPhaseName">Preparation Phase — Build the Application Foundation</span>
+                    <span className="allyPhaseTag">Year 12</span>
+                    <span className="allyPhaseName">Post-16 Study and Looking Ahead</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>Finalize the college list. Every school on it should have a clear "why this school" answer — colleges can tell when an application is generic.</div>
-                    <div className="allyItem"><span className="allyDot"/>Begin the essay brainstorm — not the writing, the thinking. The best personal statement topics often come from a 30-minute conversation where you ask: "What's something you've never put on an application but that says something true about who you are?"</div>
-                    <div className="allyItem"><span className="allyDot"/>Submit the FAFSA as early as possible (opens October 1 of senior year — plan now). Many merit scholarships are first-come, first-served. Being late costs real money.</div>
-                    <div className="allyItem"><span className="allyDot"/>Update and polish the Brag Sheet. This is the document that goes to teacher recommenders, the counselor, and gets referenced in every essay.</div>
-                    <div className="allyItem"><span className="allyDot"/>Take the final SAT/ACT if scores still need improvement. Don't let this drag into senior fall when application pressure peaks.</div>
+                    <div className="allyItem"><span className="allyDot"/>Year 12 is when university, degree apprenticeship, and employment pathways begin to diverge meaningfully — research all three, even if the destination feels obvious.</div>
+                    <div className="allyItem"><span className="allyDot"/>Attend university open days from the summer of Year 12 — most Russell Group and specialist universities hold them in June and July. Register early as popular events fill quickly.</div>
+                    <div className="allyItem"><span className="allyDot"/>Research degree apprenticeships alongside traditional university routes — major employers offer degree apprenticeships leading to a full degree with no tuition fees and a salary from day one. Many open applications to Year 12 students.</div>
+                    <div className="allyItem"><span className="allyDot"/>Begin drafting personal statement ideas in the summer of Year 12 — the UCAS personal statement is 4,000 characters and takes longer to write well than most students expect.</div>
+                    <div className="allyItem"><span className="allyDot"/>The EPQ (Extended Project Qualification) is worth starting in Year 12 if available — it develops independent research skills and is explicitly valued by Russell Group admissions tutors.</div>
+                    <div className="allyItem"><span className="allyDot"/>Check Student Finance England (gov.uk/student-finance) now — understanding tuition fee loans, maintenance loans, and income-contingent repayment terms before applying removes a significant source of anxiety later.</div>
                   </div>
                 </div>
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">Senior Year — Fall (Aug–Nov)</span>
-                    <span className="allyPhaseName">Execution Phase — Ship the Applications</span>
+                    <span className="allyPhaseTag">Year 13 — Autumn Term (Sep–Jan)</span>
+                    <span className="allyPhaseName">UCAS Applications and Decisions</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>Create a shared tracking doc: every school, every deadline, every required component. Make it visible. Check it weekly together — briefly, not obsessively.</div>
-                    <div className="allyItem"><span className="allyDot"/>Early Decision/Early Action deadlines are typically Nov 1–15. If there's a clear first choice, ED can meaningfully improve admission odds at many schools. Understand the binding vs. non-binding distinction.</div>
-                    <div className="allyItem"><span className="allyDot"/>Read essays as a supportive audience, not an editor. Your job is to ask "does this sound like you?" — not to polish their voice into yours. Admissions officers are trained to spot parental rewrites.</div>
-                    <div className="allyItem"><span className="allyDot"/>Make sure recommendation requests went out 6–8 weeks before the first deadline. Follow up with a polite reminder if needed. Teachers are managing hundreds of requests.</div>
-                    <div className="allyItem"><span className="allyDot"/>Protect your child's mental health. This is the highest-anxiety stretch of the process. Normalize uncertainty. Celebrate the submission of each application — not just the outcomes.</div>
+                    <div className="allyItem"><span className="allyDot"/>The UCAS application opens in September — submit well before the deadline, not on it.</div>
+                    <div className="allyItem"><span className="allyDot"/>Key UCAS deadlines: 15 October for Oxford, Cambridge, medicine, dentistry, and veterinary science. 29 January for most other courses. Always verify current deadlines at ucas.com before submitting.</div>
+                    <div className="allyItem"><span className="allyDot"/>UCAS allows five university choices — research each carefully using Discover Uni (discoveruni.gov.uk) for official graduate salary and employment outcome data, not just league tables or reputation.</div>
+                    <div className="allyItem"><span className="allyDot"/>The personal statement is the same document sent to all five choices — it must work for all of them simultaneously. Get multiple people to read it before submission.</div>
+                    <div className="allyItem"><span className="allyDot"/>Your child's school will submit a single reference on their behalf — usually from a form tutor or head of year. There is one reference, not several.</div>
+                    <div className="allyItem"><span className="allyDot"/>Degree apprenticeship applications often run on different timelines to UCAS — some open as early as October and close before UCAS results are known. Track deadlines separately.</div>
                   </div>
                 </div>
-
                 <div className="allyPhase">
                   <div className="allyPhaseHead">
-                    <span className="allyPhaseTag">Decision Season (Dec–May)</span>
-                    <span className="allyPhaseName">Perspective Phase — Keep the Long View</span>
+                    <span className="allyPhaseTag">Year 13 — Spring to Results Day (Feb–Aug)</span>
+                    <span className="allyPhaseName">Offers, Results Day and Next Steps</span>
                   </div>
                   <div className="allyPhaseItems">
-                    <div className="allyItem"><span className="allyDot"/>When decisions arrive: celebrate acceptances without comparisons to peers. Rejections are not verdicts on your child's worth — they are one committee's read of an incomplete picture.</div>
-                    <div className="allyItem"><span className="allyDot"/>Compare financial aid packages carefully. A $20K difference in aid over 4 years is $80K — that changes the calculus on a lot of schools. Teach your child to read an offer letter, not just the acceptance.</div>
-                    <div className="allyItem"><span className="allyDot"/>Visit admitted student days for the top 2–3 choices if possible. The campus that felt theoretical in a brochure often feels obvious or wrong in person.</div>
-                    <div className="allyItem"><span className="allyDot"/>Let them make the final decision. Your role is to make sure they have good information and feel supported — not to steer them toward the school you would have chosen. Their ownership of the decision matters for how they show up when they get there.</div>
-                    <div className="allyItem"><span className="allyDot"/>May 1 is National Decision Day. After that: housing forms, FAFSA verification, and the final transcript. You're almost done. Breathe.</div>
+                    <div className="allyItem"><span className="allyDot"/>University offers arrive between February and May — most will be conditional on A-level grades. Track all offers carefully on the UCAS Hub.</div>
+                    <div className="allyItem"><span className="allyDot"/>Once all decisions are received, UCAS requires your child to select a Firm choice and an Insurance choice — the Insurance should be a realistic fallback, not an afterthought.</div>
+                    <div className="allyItem"><span className="allyDot"/>Results Day is in mid-August — A-level results are published on a Thursday, typically the third week of August. Confirm the exact date at ucas.com each year.</div>
+                    <div className="allyItem"><span className="allyDot"/>If grades meet the Firm offer: the place is confirmed automatically through UCAS Track.</div>
+                    <div className="allyItem"><span className="allyDot"/>If grades miss the Firm offer: Clearing opens immediately — places at good universities are available through Clearing, including institutions your child may not have originally considered.</div>
+                    <div className="allyItem"><span className="allyDot"/>If grades exceed the Firm offer: Adjustment allows your child to apply to universities requiring higher grades — act quickly as this is a brief window.</div>
+                    <div className="allyItem"><span className="allyDot"/>Student Finance applications should be submitted well before Results Day — funding is not automatic and late applications can delay maintenance loan payments at the start of term.</div>
+                    <div className="allyItem"><span className="allyDot"/>Gap years are a valid option — UCAS allows deferred entry. Secure the university place first, then defer, rather than reapplying the following year.</div>
                   </div>
                 </div>
-
               </div>
-
-              <div className="allyFootnote">
-                The research is consistent: students whose parents are engaged but not controlling are less anxious, more resilient when things don't go as planned, and more satisfied with their college choice. Your job is to be the calmest, best-informed person in the room. This playbook is a start.
-              </div>
+              <div className="allyFootnote">Deadlines and funding terms change year to year. Always verify UCAS deadlines at ucas.com and Student Finance information at gov.uk/student-finance before acting on any dates in this section.</div>
             </div>
           </div>
 
