@@ -1,28 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ================================================================
-   SUPABASE CONFIG
-   ================================================================ */
-const SUPABASE_URL = "https://acmdvqrbdomvjgyxnwgl.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjbWR2cXJiZG9tdmpneXhud2dsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyMjUxNzcsImV4cCI6MjA4OTgwMTE3N30.124Ur7m3X2RCI6Y9qgViLrCMbrw8u1nmnF7M7eWGm00";
-
-async function submitFeatureRequest(data) {
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/feature_requests`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": SUPABASE_ANON_KEY,
-      "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
-      "Prefer": "return=minimal",
-    },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) throw new Error(`Supabase error: ${res.status}`);
-  return true;
-}
-
-
-/* ================================================================
    ANALYTICS — GA4 event helper
    Safe to call even before GA loads (queues via dataLayer)
    ================================================================ */
@@ -436,148 +414,6 @@ function BragRow({ label, items }) {
     </div>
   );
 }
-
-/* ================================================================
-   FEATURE REQUEST FORM COMPONENT
-   ================================================================ */
-function FeatureRequestForm({ studentGrade }) {
-  const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: "", email: "", feature_title: "", feature_description: "",
-    use_case: "", priority: "", child_grade: studentGrade || "",
-  });
-  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
-  const [errMsg, setErrMsg] = useState("");
-
-  const setF = (k, v) => setForm(p => ({ ...p, [k]: v }));
-
-  const canSubmit = form.feature_title.trim() && form.feature_description.trim();
-
-  const handleSubmit = async () => {
-    if (!canSubmit) return;
-    setStatus("submitting");
-    try {
-      await submitFeatureRequest({
-        name: form.name || null,
-        email: form.email || null,
-        feature_title: form.feature_title.trim(),
-        feature_description: form.feature_description.trim(),
-        use_case: form.use_case || null,
-        priority: form.priority || null,
-        child_grade: form.child_grade || null,
-        source: "ai-career-playbook",
-      });
-      setStatus("success");
-      trackEvent("feature_suggestion_submitted", {
-        priority: form.priority || "not_set",
-        has_email: form.email.length > 0,
-        grade: form.child_grade || "not_set",
-      });
-    } catch (e) {
-      setErrMsg(e.message);
-      setStatus("error");
-    }
-  };
-
-  const reset = () => {
-    setOpen(false);
-    setStatus("idle");
-    setForm({ name: "", email: "", feature_title: "", feature_description: "", use_case: "", priority: "", child_grade: studentGrade || "" });
-    setErrMsg("");
-  };
-
-  return (
-    <div className="frWrap no-print">
-      {!open ? (
-        <div className="frTeaser">
-          <div className="frTeaserText">
-            <div className="frTeaserTitle">Have an idea for this playbook?</div>
-            <div className="frTeaserSub">We build this for parents, with parents. Tell us what would make it more useful for your family.</div>
-          </div>
-          <button className="frOpenBtn" onClick={() => setOpen(true)}>Suggest a Feature →</button>
-        </div>
-      ) : (
-        <div className="frPanel">
-          <div className="frPanelHead">
-            <div>
-              <div className="frPanelTitle">Suggest a Feature</div>
-              <div className="frPanelSub">Every submission is read by Babith personally. Your idea may ship in the next update.</div>
-            </div>
-            <button className="frClose" onClick={reset}>✕</button>
-          </div>
-
-          {status === "success" ? (
-            <div className="frSuccess">
-              <div className="frSuccessIcon">✓</div>
-              <div className="frSuccessTitle">Got it. Thank you.</div>
-              <div className="frSuccessMsg">Your suggestion has been saved. We review every submission and prioritize based on how many parents ask for the same thing. If you left an email, we'll let you know when it ships.</div>
-              <button className="frSuccessBtn" onClick={reset}>Close</button>
-            </div>
-          ) : (
-            <div className="frForm">
-              <div className="frRow">
-                <div className="frField">
-                  <label className="frLabel">Your name <span className="frOpt">(optional)</span></label>
-                  <input className="frInput" type="text" placeholder="e.g. Sarah M." value={form.name} onChange={e => setF("name", e.target.value)} />
-                </div>
-                <div className="frField">
-                  <label className="frLabel">Email <span className="frOpt">(optional — only if you want us to follow up)</span></label>
-                  <input className="frInput" type="email" placeholder="you@email.com" value={form.email} onChange={e => setF("email", e.target.value)} />
-                </div>
-              </div>
-
-              <div className="frField">
-                <label className="frLabel">Feature idea <span className="frReq">*</span></label>
-                <input className="frInput" type="text" placeholder="e.g. Show which colleges have strong programs for AI-resistant careers" value={form.feature_title} onChange={e => setF("feature_title", e.target.value)} maxLength={120} />
-              </div>
-
-              <div className="frField">
-                <label className="frLabel">Tell us more <span className="frReq">*</span></label>
-                <textarea className="frTextarea" placeholder="What problem does this solve for you? What would you do with this feature?" value={form.feature_description} onChange={e => setF("feature_description", e.target.value)} rows={4} />
-              </div>
-
-              <div className="frRow">
-                <div className="frField">
-                  <label className="frLabel">How important is this to you?</label>
-                  <div className="frPills">
-                    {[
-                      { id: "nice_to_have", label: "Nice to have" },
-                      { id: "would_use_often", label: "Would use often" },
-                      { id: "need_this_now", label: "Need this now" },
-                    ].map(p => (
-                      <button key={p.id} className={`frPill ${form.priority === p.id ? "sel" : ""}`} onClick={() => setF("priority", p.id)}>{p.label}</button>
-                    ))}
-                  </div>
-                </div>
-                <div className="frField">
-                  <label className="frLabel">Child's grade <span className="frOpt">(optional)</span></label>
-                  <select className="frSelect" value={form.child_grade} onChange={e => setF("child_grade", e.target.value)}>
-                    <option value="">Select grade</option>
-                    {GRADES.map(g => <option key={g.id} value={g.id}>{g.label}</option>)}
-                  </select>
-                </div>
-              </div>
-
-              {status === "error" && <div className="frError">Something went wrong — {errMsg}. Please try again.</div>}
-
-              <div className="frActions">
-                <button className="frCancel" onClick={reset}>Cancel</button>
-                <button
-                  className={`frSubmit ${canSubmit && status !== "submitting" ? "active" : "disabled"}`}
-                  onClick={handleSubmit}
-                  disabled={!canSubmit || status === "submitting"}
-                >
-                  {status === "submitting" ? "Submitting…" : "Submit Suggestion"}
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
 
 /* ================================================================
    VOICE COMPONENTS — Web Speech API (free, no key, works in Chrome/Edge/Safari)
@@ -1604,9 +1440,6 @@ export default function App() {
             <a href="https://thriving-shortbread-3bf879.netlify.app" target="_blank" rel="noopener noreferrer" className="Rc">Explore the Full Career Guide →</a>
           </div>
 
-          {/* ---- Feature Request Form ---- */}
-          <FeatureRequestForm studentGrade={a.grade} />
-
           {/* ---- Print footer ---- */}
           <div className="print-only print-footer">
             <p>Research from 17 sources: WEF, Goldman Sachs, McKinsey, PwC, BLS, Stanford HAI, Anthropic, and 10 more.</p>
@@ -1864,50 +1697,6 @@ export default function App() {
   .buildAct{color:#0f172a!important}
   .buildConn{color:#475569!important}
 }
-
-/* Feature Request Form */
-.frWrap{margin-top:24px}
-.frTeaser{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;background:var(--bg-card);border:1px solid var(--border-mid);border-radius:12px;flex-wrap:wrap}
-.frTeaserTitle{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
-.frTeaserSub{font-size:13px;color:var(--text-muted);line-height:1.5}
-.frOpenBtn{padding:10px 20px;background:transparent;border:1px solid var(--blue);color:var(--blue);border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;transition:all .2s}
-.frOpenBtn:hover{background:var(--blue);color:#fff}
-.frPanel{background:var(--bg-card);border:1px solid rgba(37,99,235,.3);border-radius:12px;padding:24px}
-.frPanelHead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
-.frPanelTitle{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:4px}
-.frPanelSub{font-size:13px;color:var(--text-muted);line-height:1.5}
-.frClose{background:none;border:none;color:var(--text-dim);font-size:18px;cursor:pointer;padding:4px 8px;border-radius:4px;flex-shrink:0}.frClose:hover{color:var(--text-muted)}
-.frForm{display:flex;flex-direction:column;gap:18px}
-.frRow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.frField{display:flex;flex-direction:column;gap:6px}
-.frLabel{font-size:12px;font-weight:500;color:var(--text-muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
-.frOpt{font-weight:400;color:var(--text-dim);text-transform:none;letter-spacing:0}
-.frReq{color:var(--blue)}
-.frInput{padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:6px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%}
-.frInput:focus{border-color:rgba(37,99,235,.5)}
-.frInput::placeholder{color:var(--text-dim)}
-.frTextarea{padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:6px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:vertical;line-height:1.6;width:100%}
-.frTextarea:focus{border-color:rgba(37,99,235,.5)}
-.frTextarea::placeholder{color:var(--text-dim)}
-.frSelect{padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:6px;color:var(--text);font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%;cursor:pointer}
-.frSelect:focus{border-color:rgba(37,99,235,.5)}
-.frPills{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
-.frPill{padding:8px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:20px;color:var(--text-muted);font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
-.frPill:hover{border-color:rgba(37,99,235,.4)}.frPill.sel{border-color:var(--blue);background:rgba(37,99,235,.1);color:var(--text)}
-.frActions{display:flex;justify-content:flex-end;gap:10px;margin-top:4px}
-.frCancel{padding:10px 20px;background:transparent;border:1px solid var(--border-mid);color:var(--text-muted);border-radius:6px;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
-.frCancel:hover{border-color:var(--text-dim);color:var(--text)}
-.frSubmit{padding:10px 24px;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
-.frSubmit.active{background:var(--blue);color:#fff}.frSubmit.active:hover{background:var(--blue-hover)}
-.frSubmit.disabled{background:rgba(255,255,255,.05);color:var(--text-dim);cursor:not-allowed}
-.frError{font-size:13px;color:#fca5a5;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:6px;padding:10px 14px}
-.frSuccess{text-align:center;padding:32px 24px;display:flex;flex-direction:column;align-items:center;gap:12px}
-.frSuccessIcon{width:48px;height:48px;border-radius:50%;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--blue)}
-.frSuccessTitle{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--text)}
-.frSuccessMsg{font-size:14px;color:var(--text-muted);line-height:1.7;max-width:480px}
-.frSuccessBtn{margin-top:8px;padding:10px 24px;background:var(--blue);color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
-@media(max-width:600px){.frRow{grid-template-columns:1fr}.frTeaser{flex-direction:column;align-items:flex-start}.frActions{flex-direction:column}.frSubmit,.frCancel{width:100%;text-align:center}}
-
 
 /* Voice Capture */
 .vcWrap{margin-top:12px}
