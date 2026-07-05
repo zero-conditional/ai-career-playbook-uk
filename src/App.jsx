@@ -946,7 +946,7 @@ export default function App() {
         </div>
         <div className="Aby">
 
-          {step === 1 && <div className="Q"><div className="Qn">01</div><h2 className="Qt">What grade is your child in?</h2><p className="Qd">This determines the timeline for your action plan.</p>
+          {step === 1 && <div className="Q"><div className="Qn">01</div><h2 className="Qt">What year is your child in?</h2><p className="Qd">This determines the timeline for your action plan.</p>
             <div className="Ol">{GRADES.map(g => <button key={g.id} className={`Ob ${a.grade === g.id ? "s" : ""}`} onClick={() => set("grade", g.id)}><span className="Or">{a.grade === g.id ? "◉" : "○"}</span>{g.label}</button>)}</div>
             <VoiceSelect options={GRADES} onSelect={(id) => set("grade", id)} currentValue={a.grade} />
           </div>}
