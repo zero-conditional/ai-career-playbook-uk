@@ -322,9 +322,9 @@ function ScoreGauge({ score, size = 100 }) {
         strokeDasharray={circ} strokeDashoffset={offset}
         style={{ transition: "stroke-dashoffset 1.2s ease" }} />
       <text x={size / 2} y={size / 2} textAnchor="middle" fill="var(--text)"
-        style={{ fontSize: size * 0.28, fontFamily: "'Tabular Nums', 'DM Mono', monospace", fontWeight: 700 }}>{score}%</text>
+        style={{ fontSize: size * 0.28, fontFamily: "'Inter', sans-serif", fontVariantNumeric: "tabular-nums", fontWeight: 700 }}>{score}%</text>
       <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="var(--text-muted)"
-        style={{ fontSize: 9, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.5px" }}>AI RESISTANT</text>
+        style={{ fontSize: 9, fontFamily: "'Inter', sans-serif", letterSpacing: "0.5px" }}>AI RESISTANT</text>
     </svg>
   );
 }
@@ -1487,7 +1487,7 @@ export default function App() {
 .Ik{position:absolute;top:8px;right:10px;width:22px;height:22px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:oklch(99% 0 0);font-weight:700}
 
 .Sg{display:flex;flex-wrap:wrap;gap:8px}
-.subjectTa{width:100%;padding:16px 18px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;resize:vertical;min-height:130px;line-height:1.7}
+.subjectTa{width:100%;padding:16px 18px;background:var(--bg-elevated);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s;resize:vertical;min-height:130px;line-height:1.7}
 .subjectTa:focus{border-color:rgba(140,80,40,.5)}
 .subjectTa.err{border-color:rgba(239,68,68,.6);box-shadow:0 0 0 3px rgba(239,68,68,.08)}
 .subjectTa.ok{border-color:rgba(140,80,40,.5);box-shadow:0 0 0 3px rgba(140,80,40,.08)}
@@ -1501,12 +1501,12 @@ export default function App() {
 .Sc:hover{border-color:rgba(140,80,40,.35)}.Sc.s{border-color:var(--blue);background:rgba(140,80,40,.08);color:var(--text)}
 .Sk{color:var(--blue);font-weight:700;font-size:13px}
 
-.Ta,.Ta2{width:100%;padding:16px 18px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:vertical;min-height:100px;line-height:1.6}
+.Ta,.Ta2{width:100%;padding:16px 18px;background:var(--bg-elevated);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;resize:vertical;min-height:100px;line-height:1.6}
 .Ta:focus,.Ta2:focus{border-color:rgba(140,80,40,.5)}.Ta::placeholder,.Ta2::placeholder{color:var(--text-dim)}
 .Ta2{min-height:80px}
 .Tf{display:flex;flex-direction:column;gap:20px}
 .Fl{font-size:14px;color:var(--text-muted);display:flex;flex-direction:column;gap:8px}
-.Ti{width:100%;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+.Ti{width:100%;padding:14px 16px;background:var(--bg-elevated);border:1px solid var(--border-mid);border-radius:8px;color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
 .Ti:focus{border-color:rgba(140,80,40,.5)}.Ti::placeholder{color:var(--text-dim)}
 
 .An{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:12px}
