@@ -712,8 +712,8 @@ const TAG_STYLE = {
   "Free (students)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
   "Free (school-provided)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
   "Free (limited)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
-  "Paid (often school-provided)": { bg: "rgba(100,100,100,.15)", color: "#94a3b8" },
-  "Paid": { bg: "rgba(100,100,100,.15)", color: "#94a3b8" },
+  "Paid (often school-provided)": { bg: "rgba(100,100,100,.15)", color: "var(--text-muted)" },
+  "Paid": { bg: "rgba(100,100,100,.15)", color: "var(--text-muted)" },
 };
 
 function AIToolkit({ step }) {
