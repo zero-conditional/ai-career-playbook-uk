@@ -336,8 +336,8 @@ function GrowthBar({ value, label }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
       <span style={{ color: "var(--text-muted)", minWidth: 50 }}>{label}</span>
-      <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.06)", borderRadius: 3 }}>
-        <div style={{ height: "100%", width: `${width}%`, background: "linear-gradient(90deg, #6366f1, #10b981)", borderRadius: 3, transition: "width 1s ease" }} />
+      <div style={{ flex: 1, height: 6, background: "var(--border-mid)", borderRadius: 3 }}>
+        <div style={{ height: "100%", width: `${width}%`, background: "linear-gradient(90deg, var(--blue), var(--blue-glow))", borderRadius: 3, transition: "width 1s ease" }} />
       </div>
       <span style={{ color: "var(--text)", fontWeight: 600, minWidth: 45, textAlign: "right" }}>{value}</span>
     </div>
@@ -350,11 +350,11 @@ function TimelineNode({ year, data, idx, total }) {
   return (
     <div style={{ display: "flex", gap: 16, position: "relative", paddingBottom: isLast ? 0 : 24 }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
-        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, #6366f1, #818cf8)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 13, fontWeight: 700 }}>{idx + 1}</div>
-        {!isLast && <div style={{ width: 2, flex: 1, background: "rgba(99,102,241,0.2)", marginTop: 4 }} />}
+        <div style={{ width: 36, height: 36, borderRadius: "50%", background: "linear-gradient(135deg, var(--blue), var(--blue-glow))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 13, fontWeight: 700 }}>{idx + 1}</div>
+        {!isLast && <div style={{ width: 2, flex: 1, background: "rgba(140,80,40,0.2)", marginTop: 4 }} />}
       </div>
       <div style={{ flex: 1, paddingBottom: 8 }}>
-        <div style={{ fontSize: 16, fontWeight: 700, color: "#fafafa", marginBottom: 8, fontFamily: "'Instrument Serif', serif" }}>{year}</div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: "var(--text)", marginBottom: 8, fontFamily: "'Inter', sans-serif" }}>{year}</div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 8 }}>
           {data.courses && <MiniCard icon="📖" title="Courses" text={data.courses} />}
           {data.activities && <MiniCard icon="🎯" title="Activities" text={data.activities} />}
@@ -369,8 +369,8 @@ function TimelineNode({ year, data, idx, total }) {
 
 function MiniCard({ icon, title, text }) {
   return (
-    <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "10px 12px" }}>
-      <div style={{ fontSize: 11, color: "#818cf8", fontWeight: 600, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.5px" }}>{icon} {title}</div>
+    <div style={{ background: "var(--bg-card)", border: "1px solid var(--border-mid)", borderRadius: 10, padding: "10px 12px" }}>
+      <div style={{ fontSize: 11, color: "var(--blue)", fontWeight: 600, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.5px" }}>{icon} {title}</div>
       <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.5 }}>{text}</div>
     </div>
   );
@@ -381,13 +381,13 @@ function BragRow({ label, items }) {
   if (!items || items.length === 0) return null;
   return (
     <div style={{ marginBottom: 16 }}>
-      <div style={{ fontSize: 12, color: "#818cf8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: 6 }}>{label}</div>
+      <div style={{ fontSize: 12, color: "var(--blue)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: 6 }}>{label}</div>
       {typeof items === "string" ? (
         <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.6 }}>{items}</div>
       ) : (
         items.map((item, i) => (
           <div key={i} style={{ display: "flex", gap: 8, marginBottom: 4, fontSize: 14, color: "var(--text)" }}>
-            <span style={{ color: "#6366f1", flexShrink: 0 }}>-</span>
+            <span style={{ color: "var(--blue)", flexShrink: 0 }}>-</span>
             <span style={{ lineHeight: 1.5 }}>{item}</span>
           </div>
         ))
