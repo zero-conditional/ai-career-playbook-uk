@@ -706,12 +706,12 @@ const AI_TOOLKIT = {
 };
 
 const TAG_STYLE = {
-  "Free": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
-  "Freemium": { bg: "rgba(180,120,0,.12)", color: "#fbbf24" },
-  "Free (basic)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
-  "Free (students)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
-  "Free (school-provided)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
-  "Free (limited)": { bg: "rgba(140,80,40,.1)", color: "oklch(75% 0.08 55)" },
+  "Free": { bg: "rgba(140,80,40,.1)", color: "oklch(38% 0.09 55)" },
+  "Freemium": { bg: "rgba(180,120,0,.12)", color: "oklch(45% 0.11 85)" },
+  "Free (basic)": { bg: "rgba(140,80,40,.1)", color: "oklch(38% 0.09 55)" },
+  "Free (students)": { bg: "rgba(140,80,40,.1)", color: "oklch(38% 0.09 55)" },
+  "Free (school-provided)": { bg: "rgba(140,80,40,.1)", color: "oklch(38% 0.09 55)" },
+  "Free (limited)": { bg: "rgba(140,80,40,.1)", color: "oklch(38% 0.09 55)" },
   "Paid (often school-provided)": { bg: "rgba(100,100,100,.15)", color: "var(--text-muted)" },
   "Paid": { bg: "rgba(100,100,100,.15)", color: "var(--text-muted)" },
 };
@@ -1494,7 +1494,7 @@ export default function App() {
 .subjectTa::placeholder{color:var(--text-dim);font-size:13px;line-height:1.6}
 .subjectErrBox{display:flex;align-items:flex-start;gap:8px;margin-top:10px;padding:12px 14px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;font-size:13px;color:#fca5a5;line-height:1.5;animation:fiu .2s ease}
 .subjectErrIcon{flex-shrink:0;font-size:15px}
-.subjectDetected{margin-top:10px;padding:10px 14px;background:rgba(140,80,40,.07);border:1px solid rgba(140,80,40,.2);border-radius:8px;font-size:12px;color:oklch(75% 0.08 55);font-family:'DM Mono',monospace;animation:fiu .2s ease}
+.subjectDetected{margin-top:10px;padding:10px 14px;background:rgba(140,80,40,.07);border:1px solid rgba(140,80,40,.2);border-radius:8px;font-size:12px;color:oklch(38% 0.09 55);font-family:'DM Mono',monospace;animation:fiu .2s ease}
 .subjectDetectedLabel{color:var(--text-dim);margin-right:4px}
 .subjectHint{margin-top:10px;font-size:13px;color:var(--text-dim);font-style:italic}
 .Sc{padding:12px 20px;background:rgba(255,255,255,.02);border:1px solid var(--border-mid);border-radius:6px;color:var(--text-muted);font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;display:flex;align-items:center;gap:8px}
@@ -1525,7 +1525,7 @@ export default function App() {
 .Gu{font-size:14px;color:var(--text-muted);margin-bottom:28px}
 .Gp{height:3px;background:var(--border-mid);border-radius:2px;margin-bottom:28px;overflow:hidden}
 .Gf{height:100%;background:var(--blue);transition:width .5s;border-radius:2px}
-.Gl{text-align:left}.Gx{font-size:13px;color:var(--text-dim);padding:6px 0;transition:color .3s}.Gx.on{color:oklch(75% 0.08 55)}
+.Gl{text-align:left}.Gx{font-size:13px;color:var(--text-dim);padding:6px 0;transition:color .3s}.Gx.on{color:oklch(38% 0.09 55)}
 
 /* Results */
 .RE{min-height:100vh}
@@ -1560,7 +1560,7 @@ export default function App() {
 .ccName{font-size:16px;font-weight:600;color:var(--text);text-align:center;margin-bottom:8px}
 .ccMeta{display:flex;gap:6px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
 .ccTag{font-size:11px;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--text-muted);font-family:'DM Mono',monospace}
-.ccTag.grow{background:rgba(140,80,40,.1);color:oklch(75% 0.08 55)}
+.ccTag.grow{background:rgba(140,80,40,.1);color:oklch(38% 0.09 55)}
 .ccFit{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:8px}
 .ccInsight{font-size:12px;color:var(--blue);line-height:1.4;padding-top:8px;border-top:1px solid var(--border-mid)}
 
@@ -1573,7 +1573,7 @@ export default function App() {
 .buildAct{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
 .buildConn{font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:8px}
 .buildAction{display:inline-block;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;font-family:'DM Mono',monospace}
-.buildAction.deep{background:rgba(140,80,40,.12);color:oklch(75% 0.08 55)}
+.buildAction.deep{background:rgba(140,80,40,.12);color:oklch(38% 0.09 55)}
 .buildAction.add{background:rgba(140,80,40,.06);color:var(--text-muted);border:1px solid var(--border-mid)}
 
 /* Brag Sheet */
@@ -1592,7 +1592,7 @@ export default function App() {
 /* Concern */
 .concernBox{background:var(--bg-card);border:1px solid var(--border-mid);border-radius:12px;padding:24px}
 .concernHead{font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px;font-family:'Inter',sans-serif}
-.concernData{font-size:14px;color:oklch(75% 0.08 55);margin-bottom:16px;padding:12px;background:rgba(140,80,40,.06);border-radius:6px}
+.concernData{font-size:14px;color:oklch(38% 0.09 55);margin-bottom:16px;padding:12px;background:rgba(140,80,40,.06);border-radius:6px}
 .concernSteps{margin-top:4px}
 .csLabel{font-size:11px;color:var(--text-dim);margin-bottom:10px;font-weight:500;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em}
 .csStep{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;font-size:14px;color:var(--text-muted)}
@@ -1622,7 +1622,7 @@ export default function App() {
 .arTitle{font-family:'Inter',sans-serif;font-size:20px;color:var(--text);margin-bottom:4px;font-weight:700}
 .arSub{font-size:12px;color:var(--blue);margin-bottom:14px;font-family:'DM Mono',monospace}
 .arInsight{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:12px}
-.arAction{font-size:14px;color:oklch(75% 0.08 55);font-weight:500}
+.arAction{font-size:14px;color:oklch(38% 0.09 55);font-weight:500}
 
 /* Footer */
 .Rf{margin-top:40px;padding:28px;background:rgba(140,80,40,.05);border:1px solid rgba(140,80,40,.15);border-radius:12px;text-align:center}
