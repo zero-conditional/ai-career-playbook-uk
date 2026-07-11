@@ -323,7 +323,7 @@ function ScoreGauge({ score, size = 100 }) {
         style={{ transition: "stroke-dashoffset 1.2s ease" }} />
       <text x={size / 2} y={size / 2} textAnchor="middle" fill="var(--text)"
         style={{ fontSize: size * 0.28, fontFamily: "'Tabular Nums', 'DM Mono', monospace", fontWeight: 700 }}>{score}%</text>
-      <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="rgba(255,255,255,0.4)"
+      <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="var(--text-muted)"
         style={{ fontSize: 9, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.5px" }}>AI RESISTANT</text>
     </svg>
   );
