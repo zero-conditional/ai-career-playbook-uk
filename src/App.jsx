@@ -1105,7 +1105,7 @@ export default function App() {
           </div>
 
           {/* ---- SECTION 1: Student Profile ---- */}
-          <div className="section" style={{ background: "rgba(99,102,241,0.04)", border: "1px solid rgba(99,102,241,0.12)", borderRadius: 16, padding: 24, marginBottom: 32 }}>
+          <div className="section" style={{ background: "rgba(140,80,40,0.04)", border: "1px solid rgba(140,80,40,0.12)", borderRadius: 16, padding: 24, marginBottom: 32 }}>
             <h2 className="secTitle">Student Profile & Accomplishment Record</h2>
             <div className="profGrid">
               {a.studentName && <div className="profRow"><span className="profK">Name</span><span className="profV">{a.studentName}</span></div>}
