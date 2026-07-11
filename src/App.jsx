@@ -335,11 +335,11 @@ function GrowthBar({ value, label }) {
   const width = Math.min(Math.max(numVal * 2, 10), 100);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13 }}>
-      <span style={{ color: "#94a3b8", minWidth: 50 }}>{label}</span>
+      <span style={{ color: "var(--text-muted)", minWidth: 50 }}>{label}</span>
       <div style={{ flex: 1, height: 6, background: "rgba(255,255,255,0.06)", borderRadius: 3 }}>
         <div style={{ height: "100%", width: `${width}%`, background: "linear-gradient(90deg, #6366f1, #10b981)", borderRadius: 3, transition: "width 1s ease" }} />
       </div>
-      <span style={{ color: "#e2e8f0", fontWeight: 600, minWidth: 45, textAlign: "right" }}>{value}</span>
+      <span style={{ color: "var(--text)", fontWeight: 600, minWidth: 45, textAlign: "right" }}>{value}</span>
     </div>
   );
 }
@@ -371,7 +371,7 @@ function MiniCard({ icon, title, text }) {
   return (
     <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "10px 12px" }}>
       <div style={{ fontSize: 11, color: "#818cf8", fontWeight: 600, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.5px" }}>{icon} {title}</div>
-      <div style={{ fontSize: 13, color: "#cbd5e1", lineHeight: 1.5 }}>{text}</div>
+      <div style={{ fontSize: 13, color: "var(--text)", lineHeight: 1.5 }}>{text}</div>
     </div>
   );
 }
@@ -383,10 +383,10 @@ function BragRow({ label, items }) {
     <div style={{ marginBottom: 16 }}>
       <div style={{ fontSize: 12, color: "#818cf8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: 6 }}>{label}</div>
       {typeof items === "string" ? (
-        <div style={{ fontSize: 14, color: "#e2e8f0", lineHeight: 1.6 }}>{items}</div>
+        <div style={{ fontSize: 14, color: "var(--text)", lineHeight: 1.6 }}>{items}</div>
       ) : (
         items.map((item, i) => (
-          <div key={i} style={{ display: "flex", gap: 8, marginBottom: 4, fontSize: 14, color: "#e2e8f0" }}>
+          <div key={i} style={{ display: "flex", gap: 8, marginBottom: 4, fontSize: 14, color: "var(--text)" }}>
             <span style={{ color: "#6366f1", flexShrink: 0 }}>-</span>
             <span style={{ lineHeight: 1.5 }}>{item}</span>
           </div>
