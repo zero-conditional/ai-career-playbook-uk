@@ -316,12 +316,12 @@ function ScoreGauge({ score, size = 100 }) {
   return (
     <svg width={size} height={size / 2 + 12} viewBox={`0 0 ${size} ${size / 2 + 12}`}>
       <path d={`M 6 ${size / 2 + 6} A ${r} ${r} 0 0 1 ${size - 6} ${size / 2 + 6}`}
-        fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="10" strokeLinecap="round" />
+        fill="none" stroke="var(--border-mid)" strokeWidth="10" strokeLinecap="round" />
       <path d={`M 6 ${size / 2 + 6} A ${r} ${r} 0 0 1 ${size - 6} ${size / 2 + 6}`}
         fill="none" stroke={color} strokeWidth="10" strokeLinecap="round"
         strokeDasharray={circ} strokeDashoffset={offset}
         style={{ transition: "stroke-dashoffset 1.2s ease" }} />
-      <text x={size / 2} y={size / 2} textAnchor="middle" fill="#fafafa"
+      <text x={size / 2} y={size / 2} textAnchor="middle" fill="var(--text)"
         style={{ fontSize: size * 0.28, fontFamily: "'Tabular Nums', 'DM Mono', monospace", fontWeight: 700 }}>{score}%</text>
       <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="rgba(255,255,255,0.4)"
         style={{ fontSize: 9, fontFamily: "'Outfit', sans-serif", letterSpacing: "0.5px" }}>AI RESISTANT</text>
