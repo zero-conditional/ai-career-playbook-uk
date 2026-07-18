@@ -1036,7 +1036,7 @@ export default function App() {
             <p className="Qd">Tell us where they're genuinely strong — "She's top of her class in biology and loves genetics" or "He's excellent at maths and enjoys coding." We'll figure out the rest.</p>
             <textarea
               className={`Ta subjectTa ${subjectErr ? "err" : a.subjectText.length > 10 && !isGibberish(a.subjectText) ? "ok" : ""}`}
-              placeholder={"Try something like:\n\u2022 She lights up in chemistry, loves science\n\u2022 Obsessed with coding, built apps already\n\u2022 Strong in writing and history, hates math\n\u2022 Loves performing arts and music"}
+              placeholder={"Try something like:\n\u2022 She lights up in chemistry, loves science\n\u2022 Obsessed with coding, built apps already\n\u2022 Top of the class in biology, really enjoys computing\n\u2022 Loves performing arts and music"}
               value={a.subjectText}
               onChange={e => handleSubjectText(e.target.value)}
               rows={5}
