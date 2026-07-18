@@ -35,10 +35,10 @@ const PRIORITIES = [
 ];
 
 const TECHC = [
-  { id: "loves", label: "Loves Technology", desc: "Codes for fun, always on the latest tools" },
-  { id: "comfortable", label: "Comfortable", desc: "Uses tech well but it is not a passion" },
-  { id: "neutral", label: "Neutral", desc: "Can use it but prefers other activities" },
-  { id: "handson", label: "Prefers Hands-On", desc: "Would rather build, create, or be outdoors" },
+  { id: "loves", label: "Loves Technology", desc: "Genuinely curious how things work — codes, builds, or joins tech clubs and competitions" },
+  { id: "comfortable", label: "Comfortable", desc: "Confident using apps and devices, but doesn't seek out how they work" },
+  { id: "neutral", label: "Neutral", desc: "Uses a phone/social media like most kids, but shows no particular interest in technology itself" },
+  { id: "handson", label: "Prefers Hands-On", desc: "Uses technology when needed, but isn't drawn to it or reliant on it — happy without it" },
 ];
 
 const CONCERNS = [
@@ -482,7 +482,7 @@ function VoiceCapture({ onTranscript }) {
     <div className="vcWrap">
       {state === "idle" && (
         <button className="vcBtn idle" onClick={start}>
-          <MicIcon /> <span>Tap to speak — have a family conversation</span>
+          <MicIcon /> <span>Tap to speak your answer</span>
         </button>
       )}
       {state === "listening" && (
@@ -967,7 +967,7 @@ export default function App() {
         </div>
         <div className="Aby">
 
-          {step === 1 && <div className="Q"><div className="Qn">01</div><h2 className="Qt">What year is your child in?</h2><p className="Qd">This determines the timeline for your action plan.</p>
+          {step === 1 && <div className="Q"><div className="Qn">01</div><h2 className="Qt">What year group will your child be entering in September?</h2><p className="Qd">Answering over the summer? Choose the year they're moving up to, not the one they just finished.</p>
             <div className="Ol">{GRADES.map(g => <button key={g.id} className={`Ob ${a.grade === g.id ? "s" : ""}`} onClick={() => set("grade", g.id)}><span className="Or">{a.grade === g.id ? "◉" : "○"}</span>{g.label}</button>)}</div>
             <VoiceSelect options={GRADES} onSelect={(id) => set("grade", id)} currentValue={a.grade} />
           </div>}
@@ -1004,8 +1004,8 @@ export default function App() {
           </div>}
 
           {step === 6 && <div className="Q"><div className="Qn">06</div>
-            <h2 className="Qt">What subjects or topics genuinely excite them?</h2>
-            <p className="Qd">Write it however feels natural. "She loves biology and can't stop reading about genetics" is perfect. So is "he's really into coding and building things." We'll figure out the rest.</p>
+            <h2 className="Qt">What subjects or topics does your child excel at in school?</h2>
+            <p className="Qd">Tell us where they're genuinely strong — "She's top of her class in biology and loves genetics" or "He's excellent at maths and enjoys coding." We'll figure out the rest.</p>
             <textarea
               className={`Ta subjectTa ${subjectErr ? "err" : a.subjectText.length > 10 && !isGibberish(a.subjectText) ? "ok" : ""}`}
               placeholder={"Try something like:\n\u2022 She lights up in chemistry, loves science\n\u2022 Obsessed with coding, built apps already\n\u2022 Strong in writing and history, hates math\n\u2022 Loves performing arts and music"}
@@ -1015,12 +1015,6 @@ export default function App() {
               maxLength={500}
             />
             {subjectErr && <div className="subjectErrBox"><span className="subjectErrIcon">⚠</span>{subjectErr}</div>}
-            {!subjectErr && a.subjectText.length > 10 && parseSubjectsFromText(a.subjectText).length > 0 && (
-              <div className="subjectDetected">
-                <span className="subjectDetectedLabel">Detected: </span>
-                {parseSubjectsFromText(a.subjectText).map(id => SUBJECTS.find(s => s.id === id)?.label).filter(Boolean).join(" · ")}
-              </div>
-            )}
             {!subjectErr && a.subjectText.length > 10 && parseSubjectsFromText(a.subjectText).length === 0 && (
               <div className="subjectHint">Keep going — mention a specific subject, topic, or activity and we'll connect it to career paths.</div>
             )}
@@ -1028,14 +1022,14 @@ export default function App() {
             <p className="Qh2">{a.subjectText.length}/500 characters</p>
           </div>}
 
-          {step === 7 && <div className="Q"><div className="Qn">07</div><h2 className="Qt">What extracurriculars and activities are they involved in?</h2><p className="Qd">List everything: clubs, sports, volunteering, jobs, hobbies, music. Or tap the mic and just talk — we'll capture it all.</p>
-            <textarea className="Ta" placeholder="e.g. Varsity soccer (3 years), robotics club president, volunteers at animal shelter, plays guitar, summer job at vet clinic, debate team..." value={a.activities} onChange={e => set("activities", e.target.value)} rows={4}/>
+          {step === 7 && <div className="Q"><div className="Qn">07</div><h2 className="Qt">What extracurriculars and activities are they involved in?</h2><p className="Qd">Include anything they do in or outside school — sports teams, school clubs and societies, Duke of Edinburgh, music lessons, tutoring, volunteering, or any other regular activity or hobby.</p>
+            <textarea className="Ta" placeholder="e.g. School football or netball team, Duke of Edinburgh Award, debating society, drama or music club, cadets, volunteering" value={a.activities} onChange={e => set("activities", e.target.value)} rows={4}/>
             <VoiceCapture onTranscript={(text, final) => { if (text) set("activities", text); }} />
             <p className="Qh2">The more you share, the more personalized your playbook will be</p>
           </div>}
 
           {step === 8 && <div className="Q"><div className="Qn">08</div><h2 className="Qt">Any accomplishments, awards, or milestones?</h2><p className="Qd">These will appear in your printable Brag Sheet. Ask your child directly — tap the mic and let them tell you.</p>
-            <textarea className="Ta" placeholder="e.g. Honor roll 3 semesters, won regional science fair (2nd place), Eagle Scout, AP Scholar, speaks conversational Spanish, built an app for school project..." value={a.accomplishments} onChange={e => set("accomplishments", e.target.value)} rows={4}/>
+            <textarea className="Ta" placeholder="e.g. A music grade exam, Duke of Edinburgh Award, a public speaking or debating competition win, a personal best in sport, a school science or design award, a mock trial or Model UN competition" value={a.accomplishments} onChange={e => set("accomplishments", e.target.value)} rows={4}/>
             <VoiceCapture onTranscript={(text, final) => { if (text) set("accomplishments", text); }} />
             <p className="Qh2">Don't be modest. Everything counts.</p>
           </div>}
@@ -1049,7 +1043,7 @@ export default function App() {
                 <input type="text" className="Ti" placeholder="e.g. Neurosurgeon, cybersecurity analyst, electrician..." value={a.specificCareer} onChange={e => set("specificCareer", e.target.value)}/>
               </label>
               <label className="Fl">Anything else? (strengths, challenges, financial situation)
-                <textarea className="Ta2" placeholder="e.g. Great at math but shy. Has ADHD, thrives hands-on. First-gen college student..." value={a.extraContext} onChange={e => set("extraContext", e.target.value)} rows={3}/>
+                <textarea className="Ta2" placeholder="e.g. Great at maths but shy. Has ADHD, thrives hands-on. First in the family to go to university..." value={a.extraContext} onChange={e => set("extraContext", e.target.value)} rows={3}/>
                 <VoiceCapture onTranscript={(text, final) => { if (text) set("extraContext", text); }} />
               </label>
             </div>
