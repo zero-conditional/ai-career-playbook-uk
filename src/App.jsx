@@ -142,19 +142,20 @@ const TOTAL_STEPS = 9;
    COMPACT JSON PROMPT (70% cheaper than prose prompt)
    ================================================================ */
 function buildPrompt(a) {
-  const concernLabel = CONCERNS.find(c => c.id === a.concern)?.label || a.concern;
+  const concernLabels = a.concerns.map((id, i) => `${i + 1}. ${CONCERNS.find(c => c.id === id)?.label || id}`).join("; ");
+  const priorityLabels = a.priorities.map((id, i) => `${i + 1}. ${PRIORITIES.find(p => p.id === id)?.label || id}`).join("; ");
   const subjectLabels = a.subjectText || a.subjects.map(s => SUBJECTS.find(x => x.id === s)?.label).join(", ");
   const interestLabels = a.interests.map(i => INTERESTS.find(x => x.id === i)?.label).join(", ");
 
   return `Return ONLY valid JSON. No markdown. No backticks. Start with { end with }. All strings under 80 chars. No special characters in values.
 
-Student: ${a.grade} year group, interests: ${interestLabels}, priority: ${a.priority}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
+Student: ${a.grade} year group, interests: ${interestLabels}, priorities (ranked): ${priorityLabels}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
 
 Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Police Officer 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Software Developer 62%, Accountant 45%
 
 Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/BTECs/T-Levels/UCAS, university not college, careers adviser not counselor.
 
-{"careers":[{"n":"career name","s":88,"f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to: ${concernLabel}","aiTip":"how to combine their interests with AI skills"}
+{"careers":[{"n":"career name","s":88,"f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to their top concern: ${concernLabels}","aiTip":"how to combine their interests with AI skills"}
 
 5 careers, 3 buildOn, 5 qs. Be specific to this student. All salary references in GBP.`;
 }
@@ -766,10 +767,33 @@ function AIToolkit({ step }) {
 /* ================================================================
    MAIN APP
    ================================================================ */
+// Tap-to-rank selector — shared by Q3 (priorities) and Q5 (concerns)
+function RankSelect({ options, value, onChange, maxRank, inlineDesc }) {
+  const toggle = (id) => {
+    if (value.includes(id)) onChange(value.filter(x => x !== id));
+    else if (value.length < maxRank) onChange([...value, id]);
+  };
+  return (
+    <div className="Ol">{options.map(o => {
+      const rank = value.indexOf(o.id);
+      const sel = rank !== -1;
+      const atMax = !sel && value.length >= maxRank;
+      return (
+        <button key={o.id} className={`Ob ${inlineDesc ? "hd" : ""} ${sel ? "s" : ""}`} onClick={() => toggle(o.id)} style={atMax ? { opacity: 0.45 } : undefined}>
+          {sel ? <span className="rankNum">{rank + 1}</span> : <span className="rankEmpty"/>}
+          {inlineDesc
+            ? <div><div className="Om">{o.label}</div><div className="Od">{o.desc}</div></div>
+            : <span>{o.label}</span>}
+        </button>
+      );
+    })}</div>
+  );
+}
+
 export default function App() {
   const [step, setStep] = useState(0);
   const [a, setA] = useState({
-    grade: "", interests: [], priority: "", techComfort: "", concern: "",
+    grade: "", interests: [], priorities: [], techComfort: "", concerns: [],
     subjects: [], subjectText: "", activities: "", accomplishments: "",
     specificCareer: "", extraContext: "", studentName: "",
   });
@@ -809,9 +833,9 @@ export default function App() {
   const ok = () => {
     if (step === 1) return a.grade !== "";
     if (step === 2) return a.interests.length >= 1;
-    if (step === 3) return a.priority !== "";
+    if (step === 3) return a.priorities.length === 4;
     if (step === 4) return a.techComfort !== "";
-    if (step === 5) return a.concern !== "";
+    if (step === 5) return a.concerns.length === 3;
     if (step === 6) return a.subjectText.trim().length >= 10 && !isGibberish(a.subjectText);
     return true;
   };
@@ -905,12 +929,12 @@ export default function App() {
     }
   };
 
-  const restart = () => { setStep(0); setA({ grade: "", interests: [], priority: "", techComfort: "", concern: "", subjects: [], subjectText: "", activities: "", accomplishments: "", specificCareer: "", extraContext: "", studentName: "" }); setPb(null); setError(""); };
+  const restart = () => { setStep(0); setA({ grade: "", interests: [], priorities: [], techComfort: "", concerns: [], subjects: [], subjectText: "", activities: "", accomplishments: "", specificCareer: "", extraContext: "", studentName: "" }); setPb(null); setError(""); };
 
   const gradeLabel = GRADES.find(g => g.id === a.grade)?.label || "";
   const interestLabels = a.interests.map(i => INTERESTS.find(x => x.id === i)?.label).join(", ");
   const subjectLabels = a.subjectText || a.subjects.map(s => SUBJECTS.find(x => x.id === s)?.label).join(", ");
-  const priorityLabel = PRIORITIES.find(p => p.id === a.priority)?.label || "";
+  const priorityLabels = a.priorities.map((id, i) => `${i + 1}. ${PRIORITIES.find(p => p.id === id)?.label}`).join(", ");
   const progressPct = step >= 1 && step <= 9 ? (step / TOTAL_STEPS) * 100 : 0;
 
   // Print handler
@@ -989,11 +1013,9 @@ export default function App() {
             <VoiceSelect options={INTERESTS} onSelect={(id) => toggleInt(id)} currentValue={a.interests} matchKey="label" />
           </div>}
 
-          {step === 3 && <div className="Q"><div className="Qn">03</div><h2 className="Qt">What matters most for their career?</h2><p className="Qd">Pick the single most important factor, or say it — "job security" or "earning potential".</p>
-            <div className="Ol">{PRIORITIES.map(p => <button key={p.id} className={`Ob hd ${a.priority === p.id ? "s" : ""}`} onClick={() => set("priority", p.id)}>
-              <span className="Or">{a.priority === p.id ? "◉" : "○"}</span><div><div className="Om">{p.label}</div><div className="Od">{p.desc}</div></div>
-            </button>)}</div>
-            <VoiceSelect options={PRIORITIES} onSelect={(id) => set("priority", id)} currentValue={a.priority} />
+          {step === 3 && <div className="Q"><div className="Qn">03</div><h2 className="Qt">What matters most for their career?</h2><p className="Qd">Rank all four from most to least important — tap them in order.</p>
+            <RankSelect options={PRIORITIES} value={a.priorities} onChange={v => set("priorities", v)} maxRank={4} inlineDesc />
+            <p className="Qh">{a.priorities.length}/4 ranked</p>
           </div>}
 
           {step === 4 && <div className="Q"><div className="Qn">04</div><h2 className="Qt">How does your child feel about technology?</h2><p className="Qd">This shapes how we integrate AI fluency into their path. Or just say it — "loves technology" or "prefers hands-on".</p>
@@ -1003,12 +1025,10 @@ export default function App() {
             <VoiceSelect options={TECHC} onSelect={(id) => set("techComfort", id)} currentValue={a.techComfort} />
           </div>}
 
-          {step === 5 && <div className="Q"><div className="Qn">05</div><h2 className="Qt">What is your biggest career concern?</h2><p className="Qd">Your playbook will address this head-on with data. Or just say it — "AI replacing jobs" or "college debt".</p>
-            <div className="Ol">{CONCERNS.map(c => <button key={c.id} className={`Ob ${a.concern === c.id ? "s" : ""}`} onClick={() => set("concern", c.id)}>
-              <span className="Or">{a.concern === c.id ? "◉" : "○"}</span>{c.label}
-            </button>)}</div>
-            {CONCERNS.map(c => a.concern === c.id && c.desc && <p key={c.id} className="Qd" style={{marginTop:"8px",fontSize:"13px"}}>{c.desc}</p>)}
-            <VoiceSelect options={CONCERNS} onSelect={(id) => set("concern", id)} currentValue={a.concern} />
+          {step === 5 && <div className="Q"><div className="Qn">05</div><h2 className="Qt">What are your biggest career concerns?</h2><p className="Qd">Choose your top 3, tapping the most important first. Your playbook will address them head-on with data.</p>
+            <RankSelect options={CONCERNS} value={a.concerns} onChange={v => set("concerns", v)} maxRank={3} />
+            <p className="Qh">{a.concerns.length}/3 selected</p>
+            {a.concerns.map(id => { const c = CONCERNS.find(x => x.id === id); return c?.desc ? <p key={id} className="Qd" style={{marginTop:"8px",fontSize:"13px"}}>{c.desc}</p> : null; })}
           </div>}
 
           {step === 6 && <div className="Q"><div className="Qn">06</div>
@@ -1114,7 +1134,7 @@ export default function App() {
               <div className="profRow"><span className="profK">Grade</span><span className="profV">{gradeLabel}</span></div>
               <div className="profRow"><span className="profK">Interests</span><span className="profV">{interestLabels}</span></div>
               <div className="profRow"><span className="profK">Strong Subjects</span><span className="profV">{subjectLabels}</span></div>
-              <div className="profRow"><span className="profK">Priority</span><span className="profV">{priorityLabel}</span></div>
+              <div className="profRow"><span className="profK">Priorities</span><span className="profV">{priorityLabels}</span></div>
               {a.activities && <div className="profRow"><span className="profK">Activities</span><span className="profV">{a.activities}</span></div>}
               {a.accomplishments && <div className="profRow"><span className="profK">Accomplishments</span><span className="profV">{a.accomplishments}</span></div>}
               {a.specificCareer && <div className="profRow"><span className="profK">Considering</span><span className="profV">{a.specificCareer}</span></div>}
@@ -1184,7 +1204,7 @@ export default function App() {
               {a.specificCareer && <BragRow label="Career Direction" items={`Exploring: ${a.specificCareer}`} />}
               <BragRow label="Top AI-Resistant Matches" items={pb.careers?.map(c => `${c.name} (${c.score}% AI Resistant)`)} />
               {pb.demoInterest && <BragRow label="Demonstrated Interest Actions" items={pb.demoInterest.map(d => d.action)} />}
-              <BragRow label="Priority" items={priorityLabel} />
+              <BragRow label="Priorities" items={priorityLabels} />
             </div>
           </div>
 
@@ -1479,6 +1499,8 @@ export default function App() {
 .Ob:hover{border-color:rgba(140,80,40,.35);background:rgba(140,80,40,.04)}
 .Ob.s{border-color:var(--blue);background:rgba(140,80,40,.08);color:var(--text)}
 .Or{font-size:16px;color:var(--text-dim);flex-shrink:0}.Ob.s .Or{color:var(--blue)}
+.rankNum{width:24px;height:24px;border-radius:50%;background:var(--blue);color:oklch(99% 0 0);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;font-family:'DM Mono',monospace}
+.rankEmpty{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--border-mid);flex-shrink:0}
 .Ob.hd{align-items:flex-start}.Om{font-weight:500}.Od{font-size:13px;color:var(--text-dim);margin-top:2px}
 
 .Ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
