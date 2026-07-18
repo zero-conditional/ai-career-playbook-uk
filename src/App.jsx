@@ -15,16 +15,17 @@ const GRADES = [
 ];
 
 const INTERESTS = [
-  { id: "healthcare", label: "Healthcare & Medicine", ico: "🏥", ex: "Nursing, psychiatry, surgery, therapy" },
-  { id: "tech", label: "Technology & Engineering", ico: "💻", ex: "Software, cybersecurity, AI, robotics" },
-  { id: "trades", label: "Skilled Trades", ico: "🔧", ex: "Electrical, plumbing, heating engineering, solar" },
-  { id: "creative", label: "Creative Arts & Design", ico: "🎨", ex: "Film, music, graphic design, UX" },
-  { id: "business", label: "Business & Finance", ico: "📈", ex: "Management, consulting, investing" },
-  { id: "law", label: "Law & Policy", ico: "⚖️", ex: "Barrister, solicitor, governance, compliance" },
-  { id: "science", label: "Science & Environment", ico: "🔬", ex: "Biology, climate science, research" },
-  { id: "education", label: "Education", ico: "📚", ex: "Teaching, careers advice, special ed" },
-  { id: "public", label: "Public Service & Emergency", ico: "🚒", ex: "Fire service, paramedic, social work, military" },
-  { id: "diplomacy", label: "Diplomacy & International", ico: "🌍", ex: "Foreign service, NGO, AI governance" },
+  { id: "healthcare", label: "Healthcare, Social Care & Medicine", ico: "🏥", ex: "Nursing, Doctor/GP, Surgeon, Physiotherapist, Paramedic, Social Worker" },
+  { id: "tech", label: "Technology & Engineering", ico: "💻", ex: "Software, cybersecurity, AI, robotics, mechanical engineering, civil engineering, architecture, automotive" },
+  { id: "trades", label: "Skilled Trades", ico: "🔧", ex: "Electrical, plumbing, heating engineering, bricklaying, plastering, carpentry, horticulture, landscaping, agriculture" },
+  { id: "creative", label: "Creative Arts & Design", ico: "🎨", ex: "Film, music, fashion design, graphic design, photography, sound engineering, creative production/management, video games" },
+  { id: "media", label: "Media & Communication", ico: "📰", ex: "Journalism, writing, news reporting, broadcasting, radio, current affairs" },
+  { id: "business", label: "Business & Finance", ico: "📈", ex: "Management, business development, consulting, investing, economics, accountancy" },
+  { id: "law", label: "Law & Policy", ico: "⚖️", ex: "Barrister, Solicitor, Paralegal, Policy Adviser" },
+  { id: "science", label: "Science & Environment", ico: "🔬", ex: "Biologist, Environmental Scientist, Research Scientist, Biomedical Engineer, Renewable Energy Technician" },
+  { id: "education", label: "Education", ico: "📚", ex: "Teacher, School Careers Adviser, SEN Teacher, Tutor" },
+  { id: "public", label: "Public Service & Emergency", ico: "🚒", ex: "Firefighter, Paramedic, Police Officer, Armed Forces" },
+  { id: "diplomacy", label: "Politics, Home & International Affairs", ico: "🌍", ex: "Politician, Civil Servant, Diplomat, Political Adviser, International Aid Worker" },
 ];
 
 const PRIORITIES = [
@@ -253,6 +254,12 @@ const DEMO_INTEREST_TEMPLATES = {
     { action: "Enter a national competition such as the BBC Young Writers' Award or RSA Student Design Awards", why: "Awards and recognition validate creative talent to admissions tutors" },
     { action: "Collaborate on a creative project with peers and document it", why: "Collaboration and documentation show a professional mindset" },
     { action: "Attend a workshop or masterclass in your creative discipline", why: "Continued learning shows dedication beyond school requirements" },
+  ],
+  media: [
+    { action: "Start a blog, podcast, or video series on a topic you care about", why: "Published, self-directed content is the strongest signal for media and journalism courses" },
+    { action: "Write for your school newspaper or magazine, or start one if none exists", why: "Regular published writing demonstrates genuine commitment to journalism" },
+    { action: "Enter a young writers' or journalism competition", why: "Competitive recognition stands out on applications" },
+    { action: "Interview someone interesting and write it up as a feature piece", why: "Shows initiative and real journalistic skill, not just interest" },
   ],
   business: [
     { action: "Start a small business or side project this term", why: "Entrepreneurial initiative is the strongest signal for business courses" },
