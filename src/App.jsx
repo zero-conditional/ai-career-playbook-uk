@@ -105,6 +105,7 @@ const CAREER_DB = {
   "Electrician": { score: 94, growth: "Strong demand", salary: "£33,000–£55,000", sector: "Trades", superpower: "Physical Dexterity" },
   "Plumber / Heating Engineer": { score: 94, growth: "Strong demand", salary: "£28,000–£50,000", sector: "Trades", superpower: "Physical Dexterity" },
   "Social Worker": { score: 93, growth: "Stable", salary: "£33,000–£50,000", sector: "Public Service", superpower: "Emotional Intelligence" },
+  "Police Officer": { score: 93, growth: "Stable", salary: "£31,000–£50,000", sector: "Public Service", superpower: "Ethical Judgment" },
   "Renewable Energy Technician": { score: 92, growth: "Strong demand", salary: "£30,000–£50,000", sector: "Trades", superpower: "Physical Dexterity" },
   "AI Governance / Policy Specialist": { score: 92, growth: "Emerging", salary: "£45,000–£90,000", sector: "Diplomacy", superpower: "Ethical Judgment" },
   "Performing Artist": { score: 91, growth: "Variable", salary: "£20,000–£60,000", sector: "Creative", superpower: "Creative Vision" },
@@ -149,7 +150,7 @@ function buildPrompt(a) {
 
 Student: ${a.grade} year group, interests: ${interestLabels}, priority: ${a.priority}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
 
-Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Software Developer 62%, Accountant 45%
+Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Police Officer 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Software Developer 62%, Accountant 45%
 
 Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/BTECs/T-Levels/UCAS, university not college, careers adviser not counselor.
 
