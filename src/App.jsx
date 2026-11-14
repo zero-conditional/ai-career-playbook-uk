@@ -308,7 +308,7 @@ function getDemoInterest(interests) {
 
 const TALKING_POINTS = [
   "PwC projects up to 30% of UK jobs face high automation risk by the mid-2030s — but roles combining human judgment with technical skills are the most resilient. We want to make sure our child builds AI fluency alongside their primary interests.",
-  "UK graduates earn on average £11,500 more per year than non-graduates (DfE 2024). Entry-level and routine roles are being disrupted fastest by AI, so we want to ensure our child has demonstrable, hands-on skills before they finish their education, not just qualifications.",
+  "UK graduates earn on average £11,500 more per year than non-graduates (DfE 2024 — the most recent figures, published before DfE discontinued this comparison). Entry-level and routine roles are being disrupted fastest by AI, so we want to ensure our child has demonstrable, hands-on skills before they finish their education, not just qualifications.",
   "The World Economic Forum projects 170 million new jobs created but 92 million displaced globally by 2030. We want to focus on careers that require human skills AI cannot easily replicate.",
 ];
 
@@ -913,7 +913,7 @@ export default function App() {
         talkingPoints: TALKING_POINTS,
         concernResponse: {
           headline: parsed.concern || "The data shows a path forward",
-          data: "PwC found workers with AI skills earn 56% more in every industry. The premium doubled in 12 months.",
+          data: "PwC found workers with AI skills command a 62% wage premium on average — up from 57% a year earlier (PwC 2026). The size varies by sector, from around 16% in the public sector to over 100% in consumer-facing roles.",
           steps: ["Research the top career match from this playbook this week", "Have a conversation with your child using the talking points above", "Schedule a careers adviser meeting and bring this printed playbook"],
         },
         aiRule: {
@@ -964,13 +964,13 @@ export default function App() {
               </div>
               <div className="Wsdv"></div>
               <div className="Wsi">
-                <div className="Wn">56%</div>
-                <div className="Wl">Wage premium for AI skills, every industry (PwC, 2025)</div>
+                <div className="Wn">62%</div>
+                <div className="Wl">Average wage premium for AI skills (PwC, 2026)</div>
               </div>
               <div className="Wsdv"></div>
               <div className="Wsi">
                 <div className="Wn">46%</div>
-                <div className="Wl">Drop in UK tech grad roles in one year (ISE, 2025)</div>
+                <div className="Wl">Fall in UK tech grad roles, 2024/25 (ISE); the wider graduate market has since steadied</div>
               </div>
             </div>
 
@@ -1276,7 +1276,7 @@ export default function App() {
                 <div className="mkItems">
                   {pb.talkingPoints?.map((tp, i) => <div key={i} className="mkItem tp">→ {tp}</div>)}
                   <div className="mkItem tp">→ WEF projects 170M new jobs by 2030 alongside 92M displaced — net positive, but the new jobs require different preparation than we've historically focused on.</div>
-                  <div className="mkItem tp">→ PwC found a 56% wage premium for AI-fluent workers in every industry — this isn't just a tech story, it applies to healthcare, law, education, and the trades.</div>
+                  <div className="mkItem tp">→ PwC found an average 62% wage premium for AI-fluent workers (PwC 2026) — it varies by sector but spans the economy, from healthcare and law to education and the trades.</div>
                   <div className="mkItem tp">→ We're not trying to predict the future — we're building a student who can adapt to whatever it brings.</div>
                 </div>
               </div>
@@ -1309,7 +1309,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* ---- SECTION 7: Concern + Parent as the Ally Model + 56% Rule ---- */}
+          {/* ---- SECTION 7: Concern + Parent as the Ally Model + 62% Rule ---- */}
           {pb.concernResponse && <div className="section">
             <h2 className="secTitle">Addressing Your Concern</h2>
             <div className="concernBox">
@@ -1425,8 +1425,8 @@ export default function App() {
 
           {pb.aiRule && <div className="section">
             <div className="aiRuleBox">
-              <div className="arTitle">The 56% Rule</div>
-              <div className="arSub">Workers with AI skills earn 56% more in every industry (PwC, 2025)</div>
+              <div className="arTitle">The 62% Rule</div>
+              <div className="arSub">Workers with AI skills earn a 62% wage premium on average (PwC, 2026)</div>
               <div className="arInsight">{pb.aiRule.insight}</div>
               <div className="arAction">→ {pb.aiRule.action}</div>
             </div>
