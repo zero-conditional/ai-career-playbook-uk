@@ -151,7 +151,7 @@ function buildPrompt(a) {
 
 Student: ${a.grade} year group, interests: ${interestLabels}, priorities (ranked): ${priorityLabels}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
 
-Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Police Officer 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Software Developer 62%, Accountant 45%
+Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Police Officer 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Content Creator 65%, Software Developer 62%, Accountant 45%, Paralegal 35%
 
 Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/BTECs/T-Levels/UCAS, university not college, careers adviser not counselor.
 
@@ -948,7 +948,7 @@ export default function App() {
       {step === 0 && <div className="W">
         <div className="Wcard">
           <div className="Wc">
-            <span className="Wb">Free &nbsp;·&nbsp; 20+ research sources &nbsp;·&nbsp; 32 careers scored</span>
+            <span className="Wb">Free &nbsp;·&nbsp; 20+ research sources &nbsp;·&nbsp; 33 careers scored</span>
 
             <h1 className="Wh">
               Get Your Child's<br/>
@@ -1435,7 +1435,7 @@ export default function App() {
           {/* ---- Footer CTA ---- */}
           <div className="Rf no-print">
             <h3>Want the full 22-page research behind this playbook?</h3>
-            <p>Explore 35+ careers scored for AI resistance. Contribute your perspective and download the complete research document.</p>
+            <p>Explore 33 careers scored for AI resistance. Contribute your perspective and download the complete research document.</p>
             {/* Deployment URL to be added */}
           </div>
 
