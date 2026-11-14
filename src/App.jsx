@@ -307,7 +307,7 @@ function getDemoInterest(interests) {
 }
 
 const TALKING_POINTS = [
-  "PwC projects up to 30% of UK jobs face high automation risk by the mid-2030s — but roles combining human judgment with technical skills are the most resilient. We want to make sure our child builds AI fluency alongside their primary interests.",
+  "PwC projects up to 30% of UK jobs face high automation risk by the early 2030s — but roles combining human judgment with technical skills are the most resilient. We want to make sure our child builds AI fluency alongside their primary interests.",
   "UK graduates earn on average £11,500 more per year than non-graduates (DfE 2024 — the most recent figures, published before DfE discontinued this comparison). Entry-level and routine roles are being disrupted fastest by AI, so we want to ensure our child has demonstrable, hands-on skills before they finish their education, not just qualifications.",
   "The World Economic Forum projects 170 million new jobs created but 92 million displaced globally by 2030. We want to focus on careers that require human skills AI cannot easily replicate.",
 ];

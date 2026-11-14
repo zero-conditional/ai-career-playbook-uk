@@ -47,7 +47,7 @@ Requires an Anthropic API key set as `ANTHROPIC_API_KEY` in your Netlify environ
 - **Bar Council / Prospects.ac.uk** — barrister and solicitor earnings data
 
 ### Graduate outcomes and returns
-- **IFS "The impact of undergraduate degrees on lifetime earnings" (2020)** — net lifetime earnings returns by subject, using DfE LEO data
+- **IFS "New estimates of the impact of undergraduate degrees on lifetime earnings" (June 2026)** — net lifetime earnings returns by subject, using DfE LEO data (supersedes the 2020 edition)
 - **DfE Longitudinal Education Outcomes (LEO) dataset** — graduate earnings and employment outcomes by subject and institution
 - **DfE Graduate Labour Market Statistics 2024** — graduate vs non-graduate median earnings (final edition; DfE discontinued this series from 2025, with LEO as the successor)
 - **Discover Uni (discoveruni.gov.uk)** — official graduate outcome data by course and provider
