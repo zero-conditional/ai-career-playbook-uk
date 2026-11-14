@@ -59,29 +59,40 @@ export default async (req, context) => {
         const reader = apiResponse.body.getReader();
         const decoder = new TextDecoder();
         let fullText = "";
+        let buffer = "";
+
+        // Process one complete SSE line. Deltas whose "data:" line is split
+        // across network chunks must be buffered first (see buffer handling
+        // below) or their text is silently lost, corrupting the JSON.
+        const handleLine = (line) => {
+          const trimmed = line.trim();
+          if (!trimmed.startsWith("data:")) return;
+          const data = trimmed.slice(5).trim();
+          if (!data || data === "[DONE]") return;
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.type === "content_block_delta" && parsed.delta && parsed.delta.text) {
+              fullText += parsed.delta.text;
+            }
+          } catch {
+            // skip non-JSON lines (event:, pings, blank lines)
+          }
+        };
 
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
 
-          const chunk = decoder.decode(value, { stream: true });
-          const lines = chunk.split("\n");
-
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              const data = line.slice(6).trim();
-              if (data === "[DONE]") continue;
-              try {
-                const parsed = JSON.parse(data);
-                if (parsed.type === "content_block_delta" && parsed.delta && parsed.delta.text) {
-                  fullText += parsed.delta.text;
-                }
-              } catch {
-                // skip
-              }
-            }
+          // Keep any incomplete trailing line in the buffer for the next read.
+          buffer += decoder.decode(value, { stream: true });
+          let idx;
+          while ((idx = buffer.indexOf("\n")) !== -1) {
+            handleLine(buffer.slice(0, idx));
+            buffer = buffer.slice(idx + 1);
           }
         }
+        // Flush any final line left without a trailing newline.
+        handleLine(buffer);
 
         // Write the complete response as standard API format
         const result = JSON.stringify({ content: [{ type: "text", text: fullText }] });
