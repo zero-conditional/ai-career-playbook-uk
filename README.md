@@ -32,27 +32,31 @@ Requires an Anthropic API key set as `ANTHROPIC_API_KEY` in your Netlify environ
 ## Data sources
 
 ### Salary and labour market data
-- **ONS Annual Survey of Hours and Earnings (ASHE)** — median salary figures by occupation (SOC codes), 2024–2025
-- **NHS Agenda for Change pay bands** — 2025/26 rates for healthcare roles (Bands 6, 7, 8a)
-- **NHS Doctors and Dentists Review Body (DDRB)** — consultant and GP pay, 2025/26
-- **DfE School Teachers' Review Body (STRB)** — teacher pay scales, 2025/26
+- **ONS Annual Survey of Hours and Earnings (ASHE)** — median salary figures by occupation (SOC codes), 2026 (provisional results, released October 2026)
+- **NHS Agenda for Change pay bands** — 2026/27 rates (effective 1 April 2026) for healthcare roles (Bands 6, 7, 8a)
+- **NHS Doctors and Dentists Review Body (DDRB)** — consultant and GP pay, 2026/27
+- **DfE School Teachers' Review Body (STRB)** — teacher pay scales, 2026/27
+- **Police Remuneration Review Body** — police officer pay scales, 2026/27
+- **NJC "Grey Book"** — firefighter pay rates, 2026
 - **JIB (Joint Industry Board)** — electrician pay rates, 2026
 - **CIPHE** — plumber and heating engineer shortage data
-- **MoD Armed Forces Pay Review Body (AFPRB)** — military pay scales, 2025
+- **MoD Armed Forces Pay Review Body (AFPRB)** — military pay scales, 2026/27
 - **FCDO / Civil Service** — Fast Stream and senior civil service salary ranges
-- **Glassdoor UK, Indeed UK, CV-Library, talent.com** — advertised salary ranges for technology, creative, legal, and business roles, 2025–2026
-- **ICAEW** — accountancy salary benchmarks, 2025
+- **Glassdoor UK, Indeed UK, CV-Library, talent.com, Robert Half** — advertised salary ranges for technology, creative, legal, and business roles, 2026
+- **ICAEW** — accountancy salary benchmarks, 2026
 - **Bar Council / Prospects.ac.uk** — barrister and solicitor earnings data
 
 ### Graduate outcomes and returns
 - **IFS "The impact of undergraduate degrees on lifetime earnings" (2020)** — net lifetime earnings returns by subject, using DfE LEO data
 - **DfE Longitudinal Education Outcomes (LEO) dataset** — graduate earnings and employment outcomes by subject and institution
-- **DfE Graduate Labour Market Statistics 2024** — graduate vs non-graduate median earnings
+- **DfE Graduate Labour Market Statistics 2024** — graduate vs non-graduate median earnings (final edition; DfE discontinued this series from 2025, with LEO as the successor)
 - **Discover Uni (discoveruni.gov.uk)** — official graduate outcome data by course and provider
 
 ### AI and future of work
 - **WEF Future of Jobs Report 2025** — global job creation and displacement projections
+- **PwC Global AI Jobs Barometer 2026** — wage premium for AI skills (62%, up from 57%)
 - **PwC "Will robots really steal our jobs?" (2018)** — UK automation risk by sector
+- **Institute of Student Employers (ISE)** — graduate recruitment survey, including tech/digital hiring trends
 - **Anthropic** — AI capability context
 
 ### UK education and careers
