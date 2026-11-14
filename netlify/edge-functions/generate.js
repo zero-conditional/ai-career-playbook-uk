@@ -32,7 +32,7 @@ export default async (req, context) => {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: body.model || "claude-sonnet-4-6",
+        model: body.model || "claude-opus-4-8",
         max_tokens: body.max_tokens || 4000,
         stream: true,
         messages: body.messages || [],
