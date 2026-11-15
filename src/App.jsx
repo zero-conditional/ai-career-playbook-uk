@@ -1085,7 +1085,7 @@ export default function App() {
           {step === 7 && <div className="Q"><div className="Qn">07</div><h2 className="Qt">What extracurriculars and activities are they involved in?</h2><p className="Qd">Include anything they do in or outside school — sports teams, school clubs and societies, Duke of Edinburgh, music lessons, tutoring, volunteering, or any other regular activity or hobby.</p>
             <textarea className="Ta" placeholder="e.g. School football or netball team, Duke of Edinburgh Award, debating society, drama or music club, cadets, volunteering" value={a.activities} onChange={e => set("activities", e.target.value)} rows={4}/>
             <VoiceCapture onTranscript={(text, final) => { if (text) set("activities", text); }} />
-            <p className="Qh2">The more you share, the more personalized your playbook will be</p>
+            <p className="Qh2">The more you share, the more personalised your playbook will be</p>
           </div>}
 
           {step === 8 && <div className="Q"><div className="Qn">08</div><h2 className="Qt">Any accomplishments, awards, or milestones?</h2><p className="Qd">These will appear in your printable Brag Sheet. Ask your child directly — tap the mic and let them tell you.</p>
@@ -1125,7 +1125,7 @@ export default function App() {
         <div className="Gc">
           <div className="Gi"><div className="Gs"/></div>
           <h2 className="Gt">Building Your Visual Playbook</h2>
-          <p className="Gu">Analyzing your child's profile against 17 research sources...</p>
+          <p className="Gu">Analysing your child's profile against UK research sources...</p>
           <div className="Gp"><div className="Gf" style={{ width: `${progress}%` }}/></div>
           <div className="Gl">
             {[["Matching AI-resilient careers", 8], ["Connecting activities to career paths", 25], ["Building year-by-year timeline", 42], ["Creating careers adviser meeting kit", 58], ["Generating brag sheet", 75], ["Rendering visual playbook", 90]].map(([t, v]) =>
@@ -1342,7 +1342,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* ---- SECTION 7: Concern + Parent as the Ally Model + 62% Rule ---- */}
+          {/* ---- SECTION 7: Concern + Parent as the Ally Model + AI Skills Premium ---- */}
           {pb.concernResponse && <div className="section">
             <h2 className="secTitle">Addressing Your Concern</h2>
             <div className="concernBox">
