@@ -162,16 +162,20 @@ function buildPrompt(a) {
   const priorityLabels = a.priorities.map((id, i) => `${i + 1}. ${PRIORITIES.find(p => p.id === id)?.label || id}`).join("; ");
   const subjectLabels = a.subjectText || a.subjects.map(s => SUBJECTS.find(x => x.id === s)?.label).join(", ");
   const interestLabels = a.interests.map(i => INTERESTS.find(x => x.id === i)?.label).join(", ");
+  const careerList = Object.entries(CAREER_DB).map(([name, d]) => `${name} | ${d.score} | ${d.ai}`).join("\n");
 
   return `Return ONLY valid JSON. No markdown. No backticks. Start with { end with }. All strings under 80 chars. No special characters in values.
 
 Student: ${a.grade} year group, interests: ${interestLabels}, priorities (ranked): ${priorityLabels}, subjects: ${subjectLabels}, activities: ${a.activities || "none"}, accomplishments: ${a.accomplishments || "none"}${a.specificCareer ? ", considering: " + a.specificCareer : ""}
 
-Careers DB: Mental Health Therapist 98%, Firefighter/Paramedic 97%, Physician 96%, Careers Adviser 96%, Diplomat 95%, SEN Teacher 95%, Nurse Practitioner 94%, Electrician 94%, Plumber 94%, Social Worker 93%, Police Officer 93%, Renewable Energy Tech 92%, AI Governance 92%, Performing Artist 91%, Business Leader 90%, Teacher 89%, Cybersecurity 88%, Military 88%, Construction Mgr 87%, Environmental Scientist 86%, Creative Director 85%, Robotics Engineer 85%, Biomedical Engineer 83%, Barrister 82%, Solicitor 82%, Research Scientist 80%, AI/ML Engineer 78%, UX Designer 78%, Financial Adviser 76%, Content Creator 65%, Software Developer 62%, Accountant 45%, Paralegal 35%
+Careers database (name | AI resilience score out of 100 | how AI changes the role):
+${careerList}
 
-Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/BTECs/T-Levels/UCAS, university not college, careers adviser not counselor.
+Rules: Prefer careers from the database and copy the name exactly as written. Use the database score and label unchanged. Only if a career outside the database clearly fits this student better, include it and score it yourself: rate five factors 0 to 4 each (in-person and physical work; human trust and relationships; accountability and regulation; non-routine judgement; entry-level resilience), add them and multiply by 5. Label it Mostly human, Augmented or Reshaped. Scores are points out of 100, not percentages.
 
-{"careers":[{"n":"career name","s":88,"f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to their top concern: ${concernLabels}","aiTip":"how to combine their interests with AI skills"}
+Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/T-Levels/V Levels/BTECs/UCAS, university not college, careers adviser not counselor.
+
+{"careers":[{"n":"career name","s":65,"l":"Augmented","f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to their top concern: ${concernLabels}","aiTip":"how to combine their interests with AI skills"}
 
 5 careers, 3 buildOn, 5 qs. Be specific to this student. All salary references in GBP.`;
 }
@@ -916,12 +920,17 @@ export default function App() {
       }
       // Merge API response with client-side templates
       const fullPb = {
-        careers: (parsed.careers || []).map(c => ({
-          name: c.n || c.name || "Career",
-          score: c.s || c.score || 80,
-          fit: c.f || c.fit || "",
-          insight: CAREER_DB[c.n || c.name]?.growth ? (CAREER_DB[c.n || c.name].growth + " projected growth") : "High demand field",
-        })),
+        careers: (parsed.careers || []).map(c => {
+          const name = c.n || c.name || "Career";
+          const db = CAREER_DB[name];
+          return {
+            name,
+            // Database score always wins; Claude's own score is used only for careers outside the database.
+            score: db ? db.score : (Number(c.s ?? c.score) || 50),
+            ai: db ? db.ai : (c.l || c.label || ""),
+            fit: c.f || c.fit || "",
+          };
+        }),
         yearPlan: getYearPlan(a.grade),
         buildOn: (parsed.buildOn || []).map(b => ({
           activity: b.a || b.activity || "",
