@@ -171,11 +171,11 @@ Student: ${a.grade} year group, interests: ${interestLabels}, priorities (ranked
 Careers database (name | AI resilience score out of 100 | how AI changes the role):
 ${careerList}
 
-Rules: Prefer careers from the database and copy the name exactly as written. Use the database score and label unchanged. Only if a career outside the database clearly fits this student better, include it and score it yourself: rate five factors 0 to 4 each (in-person and physical work; human trust and relationships; accountability and regulation; non-routine judgement; entry-level resilience), add them and multiply by 5. Label it Mostly human, Augmented or Reshaped. Scores are points out of 100, not percentages.
+Rules: Prefer careers from the database and copy the name exactly as written. Use the database score and label unchanged. Only if a career outside the database clearly fits this student better, include it and score it yourself: rate five factors 0 to 4 each (in-person and physical work; human trust and relationships; accountability and regulation; non-routine judgement; entry-level resilience), add them and multiply by 5. Label it Mostly human, Augmented or Reshaped. Scores are points out of 100, not percentages. Do not mention salaries in the f field; the app shows UK salary ranges separately.
 
 Use UK context throughout: salaries in GBP, qualifications as GCSEs/A-levels/T-Levels/V Levels/BTECs/UCAS, university not college, careers adviser not counselor.
 
-{"careers":[{"n":"career name","s":65,"l":"Augmented","f":"why fits this student"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to their top concern: ${concernLabels}","aiTip":"how to combine their interests with AI skills"}
+{"careers":[{"n":"career name","s":65,"l":"Augmented","f":"why it fits this student, no salary figures"}],"buildOn":[{"a":"their activity","c":"career connection","d":"deepen or add"}],"qs":["careers adviser question"],"concern":"response to their top concern: ${concernLabels}","aiTip":"how to combine their interests with AI skills"}
 
 5 careers, 3 buildOn, 5 qs. Be specific to this student. All salary references in GBP.`;
 }
@@ -344,7 +344,7 @@ function ScoreGauge({ score, size = 100 }) {
   // D2: green 75+, amber 45–74, deep orange below 45. No red — a low score is not "avoid".
   const color = score >= 75 ? "#059669" : score >= 45 ? "#a16207" : "#c2410c";
   return (
-    <svg width={size} height={size / 2 + 12} viewBox={`0 0 ${size} ${size / 2 + 12}`}>
+    <svg width={size} height={size / 2 + 22} viewBox={`0 0 ${size} ${size / 2 + 22}`}>
       <path d={`M 6 ${size / 2 + 6} A ${r} ${r} 0 0 1 ${size - 6} ${size / 2 + 6}`}
         fill="none" stroke="var(--border-mid)" strokeWidth="10" strokeLinecap="round" />
       <path d={`M 6 ${size / 2 + 6} A ${r} ${r} 0 0 1 ${size - 6} ${size / 2 + 6}`}
