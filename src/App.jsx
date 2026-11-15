@@ -336,12 +336,13 @@ const TALKING_POINTS = [
    VISUAL COMPONENTS
    ================================================================ */
 
-// Arc gauge for AI resistance score
+// Arc gauge for AI resilience score (points out of 100 — not a percentage)
 function ScoreGauge({ score, size = 100 }) {
   const r = (size - 12) / 2;
   const circ = Math.PI * r;
   const offset = circ - (score / 100) * circ;
-  const color = score >= 85 ? "#10b981" : score >= 70 ? "#f59e0b" : "#ef4444";
+  // D2: green 75+, amber 45–74, deep orange below 45. No red — a low score is not "avoid".
+  const color = score >= 75 ? "#059669" : score >= 45 ? "#a16207" : "#c2410c";
   return (
     <svg width={size} height={size / 2 + 12} viewBox={`0 0 ${size} ${size / 2 + 12}`}>
       <path d={`M 6 ${size / 2 + 6} A ${r} ${r} 0 0 1 ${size - 6} ${size / 2 + 6}`}
@@ -351,9 +352,11 @@ function ScoreGauge({ score, size = 100 }) {
         strokeDasharray={circ} strokeDashoffset={offset}
         style={{ transition: "stroke-dashoffset 1.2s ease" }} />
       <text x={size / 2} y={size / 2} textAnchor="middle" fill="var(--text)"
-        style={{ fontSize: size * 0.28, fontFamily: "'Inter', sans-serif", fontVariantNumeric: "tabular-nums", fontWeight: 700 }}>{score}%</text>
+        style={{ fontSize: size * 0.28, fontFamily: "'Inter', sans-serif", fontVariantNumeric: "tabular-nums", fontWeight: 700 }}>
+        {score}<tspan fill="var(--text-muted)" style={{ fontSize: size * 0.13, fontWeight: 600 }}>/100</tspan>
+      </text>
       <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="var(--text-muted)"
-        style={{ fontSize: 9, fontFamily: "'Inter', sans-serif", letterSpacing: "0.5px" }}>AI RESISTANT</text>
+        style={{ fontSize: 9, fontFamily: "'Inter', sans-serif", letterSpacing: "0.5px" }}>AI RESILIENCE</text>
     </svg>
   );
 }
@@ -1173,21 +1176,22 @@ export default function App() {
           {/* ---- SECTION 2: Career Match Dashboard ---- */}
           <div className="section">
             <h2 className="secTitle">Your Top AI-Resistant Career Matches</h2>
-            <p className="secDesc">Ranked by fit to {a.studentName || "your child"}'s profile. Scores from 17 cross-referenced research sources.</p>
+            <p className="secDesc">Ranked by fit to {a.studentName || "your child"}'s profile. AI resilience scores are points out of 100, based on five published factors (<a href="https://github.com/zero-conditional/ai-career-playbook-uk#scoring-method" target="_blank" rel="noopener noreferrer">method and sources</a>). Higher means more resilient. Not a prediction for any individual.</p>
             <div className="careerGrid">
               {pb.careers?.map((c, i) => {
                 const dbEntry = CAREER_DB[c.name] || {};
                 return (
                   <div key={i} className="careerCard">
                     <div className="ccRank">#{i + 1}</div>
-                    <div className="ccGauge"><ScoreGauge score={c.score || dbEntry.score || 80} size={90} /></div>
+                    <div className="ccGauge"><ScoreGauge score={c.score} size={90} /></div>
                     <div className="ccName">{c.name}</div>
                     <div className="ccMeta">
-                      <span className="ccTag">{dbEntry.salary || "Competitive"}</span>
-                      <span className="ccTag grow">{dbEntry.growth || "Growing"} growth</span>
+                      <span className="ccTag">{dbEntry.salary || "Salary varies"}</span>
+                      <span className="ccTag grow">{dbEntry.growth ? `Demand: ${dbEntry.growth}` : "Demand: not assessed"}</span>
                     </div>
                     <div className="ccFit">{c.fit}</div>
-                    <div className="ccInsight">💡 {c.insight}</div>
+                    {dbEntry.note && <div className="ccFit">{dbEntry.note}</div>}
+                    {c.ai && <div className="ccInsight">💡 How AI changes this role: <strong>{c.ai}</strong></div>}
                   </div>
                 );
               })}
@@ -1231,7 +1235,7 @@ export default function App() {
               {a.accomplishments && <BragRow label="Accomplishments & Awards" items={a.accomplishments.split(",").map(s => s.trim()).filter(Boolean)} />}
               <BragRow label="Career Interests" items={interestLabels} />
               {a.specificCareer && <BragRow label="Career Direction" items={`Exploring: ${a.specificCareer}`} />}
-              <BragRow label="Top AI-Resistant Matches" items={pb.careers?.map(c => `${c.name} (${c.score}% AI Resistant)`)} />
+              <BragRow label="Top AI-Resilient Matches" items={pb.careers?.map(c => `${c.name} (${c.score}/100 AI resilience${c.ai ? ", " + c.ai : ""})`)} />
               {pb.demoInterest && <BragRow label="Demonstrated Interest Actions" items={pb.demoInterest.map(d => d.action)} />}
               <BragRow label="Priorities" items={priorityLabels} />
             </div>
