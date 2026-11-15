@@ -351,11 +351,11 @@ function ScoreGauge({ score, size = 100 }) {
         fill="none" stroke={color} strokeWidth="10" strokeLinecap="round"
         strokeDasharray={circ} strokeDashoffset={offset}
         style={{ transition: "stroke-dashoffset 1.2s ease" }} />
-      <text x={size / 2} y={size / 2} textAnchor="middle" fill="var(--text)"
-        style={{ fontSize: size * 0.28, fontFamily: "'Inter', sans-serif", fontVariantNumeric: "tabular-nums", fontWeight: 700 }}>
-        {score}<tspan fill="var(--text-muted)" style={{ fontSize: size * 0.13, fontWeight: 600 }}>/100</tspan>
+      <text x={size / 2} y={size / 2 + 3} textAnchor="middle" fill="var(--text)"
+        style={{ fontSize: size * 0.24, fontFamily: "'Inter', sans-serif", fontVariantNumeric: "tabular-nums", fontWeight: 700 }}>
+        {score}<tspan fill="var(--text-muted)" style={{ fontSize: size * 0.11, fontWeight: 600 }}>/100</tspan>
       </text>
-      <text x={size / 2} y={size / 2 + 14} textAnchor="middle" fill="var(--text-muted)"
+      <text x={size / 2} y={size / 2 + 16} textAnchor="middle" fill="var(--text-muted)"
         style={{ fontSize: 9, fontFamily: "'Inter', sans-serif", letterSpacing: "0.5px" }}>AI RESILIENCE</text>
     </svg>
   );
