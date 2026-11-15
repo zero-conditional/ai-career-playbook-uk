@@ -1,27 +1,54 @@
+// Server-side settings — the browser cannot change these.
+const MODEL = "claude-sonnet-5-5"; // D1 confirmed 15 Nov 2026 (was claude-opus-4-8)
+const MAX_TOKENS = 2000;
+const MAX_PROMPT_CHARS = 12000;
+
+const json = (obj, status = 200) =>
+  new Response(JSON.stringify(obj), {
+    status,
+    headers: { "content-type": "application/json" },
+  });
+
 export default async (req, context) => {
   if (req.method === "GET") {
-    return new Response(JSON.stringify({ status: "ok" }), {
-      headers: { "content-type": "application/json" },
-    });
+    return json({ status: "ok" });
   }
 
   if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: { message: "Use POST" } }), {
-      status: 405,
-      headers: { "content-type": "application/json" },
-    });
+    return json({ error: { message: "Use POST" } }, 405);
   }
 
   try {
     const apiKey = Netlify.env.get("ANTHROPIC_API_KEY");
     if (!apiKey) {
-      return new Response(
-        JSON.stringify({ error: { message: "API key not set" } }),
-        { status: 500, headers: { "content-type": "application/json" } }
-      );
+      return json({ error: { message: "API key not set" } }, 500);
     }
 
-    const body = await req.json();
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return json({ error: { message: "Invalid request." } }, 400);
+    }
+
+    // Accept exactly one user message containing a string prompt.
+    const messages = body && Array.isArray(body.messages) ? body.messages : [];
+    const first = messages[0];
+    if (
+      messages.length !== 1 ||
+      !first ||
+      first.role !== "user" ||
+      typeof first.content !== "string" ||
+      first.content.trim().length === 0
+    ) {
+      return json({ error: { message: "Invalid request." } }, 400);
+    }
+    if (first.content.length > MAX_PROMPT_CHARS) {
+      return json(
+        { error: { message: "Your answers are too long. Please shorten them and try again." } },
+        400
+      );
+    }
 
     // Use streaming to send first byte quickly and avoid 40s header timeout
     const apiResponse = await fetch("https://api.anthropic.com/v1/messages", {
@@ -32,19 +59,16 @@ export default async (req, context) => {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: body.model || "claude-opus-4-8",
-        max_tokens: body.max_tokens || 4000,
+        model: MODEL,
+        max_tokens: MAX_TOKENS,
         stream: true,
-        messages: body.messages || [],
+        messages: [{ role: "user", content: first.content }],
       }),
     });
 
     if (!apiResponse.ok) {
       const errText = await apiResponse.text();
-      return new Response(
-        JSON.stringify({ error: { message: errText } }),
-        { status: apiResponse.status, headers: { "content-type": "application/json" } }
-      );
+      return json({ error: { message: errText } }, apiResponse.status);
     }
 
     // Stream: collect all text chunks, then return as standard API format
@@ -111,13 +135,15 @@ export default async (req, context) => {
       headers: { "content-type": "application/json" },
     });
   } catch (err) {
-    return new Response(
-      JSON.stringify({ error: { message: String(err) } }),
-      { status: 500, headers: { "content-type": "application/json" } }
-    );
+    return json({ error: { message: String(err) } }, 500);
   }
 };
 
 export const config = {
   path: "/api/generate",
+  rateLimit: {
+    windowLimit: 5,
+    windowSize: 60,
+    aggregateBy: ["ip", "domain"],
+  },
 };

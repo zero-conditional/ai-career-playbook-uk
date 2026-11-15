@@ -881,8 +881,12 @@ export default function App() {
     try {
       const res = await fetch("/api/generate", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ model: "claude-opus-4-8", max_tokens: 2000, messages: [{ role: "user", content: buildPrompt(a) }] }),
+        body: JSON.stringify({ messages: [{ role: "user", content: buildPrompt(a) }] }),
       });
+      if (res.status === 429) {
+        setError("Too many requests from your connection. Please wait a minute and try again.");
+        setStep(11); setLoading(false); return;
+      }
       const data = await res.json();
       if (data.error) {
         setError(data.error.message || JSON.stringify(data.error));
