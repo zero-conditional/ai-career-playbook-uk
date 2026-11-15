@@ -46,7 +46,7 @@ const CONCERNS = [
   { id: "entry_level", label: "Entry-level jobs are disappearing before my kid graduates" },
   { id: "ai_replace", label: "AI will make their chosen field obsolete" },
   { id: "no_direction", label: "My child has no idea what they want to do" },
-  { id: "debt_roi", label: "Will my child's degree pay off financially?", desc: "On average, a UK degree delivers a positive lifetime return — but subject matters enormously. IFS analysis of government LEO data shows net lifetime earnings ranging from negative returns for Social Care and Creative Arts graduates, to over £1,000,000 for Economics and Medicine. One in five graduates would have been better off financially without a degree. Which subject and career path matters far more than the decision to go to university itself. Source: IFS 'The impact of undergraduate degrees on lifetime earnings' (2020), using DfE Longitudinal Education Outcomes (LEO) data." },
+  { id: "debt_roi", label: "Will my child's degree pay off financially?", desc: "On average, a UK degree leaves graduates around £100,000 better off over their lifetime, after tax and student loan repayments — but subject matters enormously. IFS analysis of government LEO data shows returns ranging from around £60,000 worse off on average for Performing Arts to over £400,000 better off for Medicine and Economics. Around a quarter of graduates can expect to be financially worse off than if they had not gone to university. Source: IFS 'New estimates of the impact of undergraduate degrees on lifetime earnings' (June 2026), using DfE Longitudinal Education Outcomes (LEO) data." },
   { id: "too_late", label: "We are already behind and don't know where to start" },
 ];
 
@@ -209,7 +209,7 @@ const YEAR_TEMPLATES = {
     },
     {
       year: "Year 11 (GCSE)",
-      courses: "GCSE exam year. Prioritise revision planning from September. Research post-16 options: A-levels (typically 3 subjects), BTEC Level 3, T-Levels (technical, two-year, include substantial industry placement), or a Level 3 Apprenticeship. Applications to sixth form, FE college, or apprenticeships usually open in autumn/winter. You are legally required to remain in education or training until age 18.",
+      courses: "GCSE exam year. Prioritise revision planning from September. Research post-16 options: A-levels (typically 3 subjects), T-Levels (technical, two-year, include substantial industry placement), V Levels (new vocational qualifications, each the size of one A-level, replacing many BTECs from September 2027), BTEC Level 3 where still offered, or a Level 3 Apprenticeship. Applications to sixth form, FE college, or apprenticeships usually open in autumn/winter. You are legally required to remain in education or training until age 18.",
       activities: "Keep commitments manageable during exam term but don't drop everything. Duke of Edinburgh Silver Award ongoing. Prefect or leadership roles strengthen applications. Careers fair attendance.",
       summer: "Post-GCSE summer is a significant window. Results Day is in late August. Before results: rest, but have a back-up option for sixth form or college in case grades differ from predictions. After results: use remaining summer for reading, a skill, or work/volunteering.",
       portfolio: "Finalise a clear record of GCSEs (predicted and actual), work experience, volunteering, and activities. This becomes the foundation for sixth form applications and, later, your UCAS personal statement.",
@@ -217,7 +217,7 @@ const YEAR_TEMPLATES = {
     },
     {
       year: "Year 12 (Sixth Form / College)",
-      courses: "First year of post-16 study. A-level students typically take 3–4 subjects. BTEC and T-Level students follow their programme's structure. EPQ is strongly recommended if available. Begin thinking about university vs. degree apprenticeship vs. employment. UCAS opens for the following year's cycle.",
+      courses: "First year of post-16 study. A-level students typically take 3–4 subjects. BTEC, V Level and T-Level students follow their programme's structure. EPQ is strongly recommended if available. Begin thinking about university vs. degree apprenticeship vs. employment. UCAS opens for the following year's cycle.",
       activities: "Duke of Edinburgh Gold Award. Sixth form or college leadership. Part-time work if manageable. Attend university open days from summer of Year 12. Springpod virtual industry placements. Young Enterprise company programme.",
       summer: "University open days (June–September). Summer internship, work placement, or shadowing. Insight programmes at law firms, NHS, banks, engineering companies. Begin drafting personal statement ideas. NCS leadership programmes. Nuffield Research Placements.",
       portfolio: "Start your UCAS personal statement draft. Record open days attended and your notes on each. If considering degree apprenticeships, research which companies recruit and when.",
@@ -327,7 +327,7 @@ function getDemoInterest(interests) {
 }
 
 const TALKING_POINTS = [
-  "PwC projects up to 30% of UK jobs face high automation risk by the early 2030s — but roles combining human judgment with technical skills are the most resilient. We want to make sure our child builds AI fluency alongside their primary interests.",
+  "Most UK employers expect AI to reshape entry-level roles rather than replace them — 87% expect changes within three years, with routine research, drafting and admin shrinking (ISE Student Development Survey 2026). We want our child to build the judgement, communication and hands-on skills that stay human-led, alongside AI fluency.",
   "UK graduates earn on average £11,500 more per year than non-graduates (DfE 2024 — the most recent figures, published before DfE discontinued this comparison). Entry-level and routine roles are being disrupted fastest by AI, so we want to ensure our child has demonstrable, hands-on skills before they finish their education, not just qualifications.",
   "The World Economic Forum projects 170 million new jobs created but 92 million displaced globally by 2030. We want to focus on careers that require human skills AI cannot easily replicate.",
 ];
@@ -945,7 +945,7 @@ export default function App() {
         talkingPoints: TALKING_POINTS,
         concernResponse: {
           headline: parsed.concern || "The data shows a path forward",
-          data: "PwC found workers with AI skills command a 62% wage premium on average — up from 57% a year earlier (PwC 2026). The size varies by sector, from around 16% in the public sector to over 100% in consumer-facing roles.",
+          data: "PwC found UK job adverts requiring AI skills offer a 34% wage premium on average, up from 11% a year earlier (PwC UK AI Jobs Barometer 2026). Across 27 countries the average is 62%.",
           steps: ["Research the top career match from this playbook this week", "Have a conversation with your child using the talking points above", "Schedule a careers adviser meeting and bring this printed playbook"],
         },
         aiRule: {
@@ -980,7 +980,7 @@ export default function App() {
       {step === 0 && <div className="W">
         <div className="Wcard">
           <div className="Wc">
-            <span className="Wb">Free &nbsp;·&nbsp; 20+ research sources &nbsp;·&nbsp; 33 careers scored</span>
+            <span className="Wb">Free &nbsp;·&nbsp; UK research sources &nbsp;·&nbsp; {CAREER_COUNT} careers scored</span>
 
             <h1 className="Wh">
               Get Your Child's<br/>
@@ -991,13 +991,13 @@ export default function App() {
 
             <div className="Wst">
               <div className="Wsi">
-                <div className="Wn">£500K+</div>
-                <div className="Wl">Lifetime earnings gap between highest and lowest returning degree subjects (IFS)</div>
+                <div className="Wn">£450K+</div>
+                <div className="Wl">Lifetime earnings gap between highest and lowest returning degree subjects (IFS, 2026)</div>
               </div>
               <div className="Wsdv"></div>
               <div className="Wsi">
-                <div className="Wn">62%</div>
-                <div className="Wl">Average wage premium for AI skills (PwC, 2026)</div>
+                <div className="Wn">34%</div>
+                <div className="Wl">UK wage premium for AI skills in job adverts (PwC, 2026)</div>
               </div>
               <div className="Wsdv"></div>
               <div className="Wsi">
@@ -1010,7 +1010,7 @@ export default function App() {
 
             <div className="Ww">
               <div className="Wwg">
-                <div className="Wwi">Visual AI Resistance Gauges for career matches</div>
+                <div className="Wwi">Visual AI Resilience Gauges for career matches</div>
                 <div className="Wwi">Year-by-Year Timeline with specific action items</div>
                 <div className="Wwi">Printable Brag Sheet formatted for careers advisers</div>
                 <div className="Wwi">Careers Adviser Meeting Kit with tailored questions</div>
@@ -1128,7 +1128,7 @@ export default function App() {
           <p className="Gu">Analyzing your child's profile against 17 research sources...</p>
           <div className="Gp"><div className="Gf" style={{ width: `${progress}%` }}/></div>
           <div className="Gl">
-            {[["Matching AI-resistant careers", 8], ["Connecting activities to career paths", 25], ["Building year-by-year timeline", 42], ["Creating careers adviser meeting kit", 58], ["Generating brag sheet", 75], ["Rendering visual playbook", 90]].map(([t, v]) =>
+            {[["Matching AI-resilient careers", 8], ["Connecting activities to career paths", 25], ["Building year-by-year timeline", 42], ["Creating careers adviser meeting kit", 58], ["Generating brag sheet", 75], ["Rendering visual playbook", 90]].map(([t, v]) =>
               <div key={t} className={`Gx ${progress > v ? "on" : ""}`}>{progress > v ? "✓" : "○"} {t}</div>
             )}
           </div>
@@ -1175,7 +1175,7 @@ export default function App() {
 
           {/* ---- SECTION 2: Career Match Dashboard ---- */}
           <div className="section">
-            <h2 className="secTitle">Your Top AI-Resistant Career Matches</h2>
+            <h2 className="secTitle">Your Top AI-Resilient Career Matches</h2>
             <p className="secDesc">Ranked by fit to {a.studentName || "your child"}'s profile. AI resilience scores are points out of 100, based on five published factors (<a href="https://github.com/zero-conditional/ai-career-playbook-uk#scoring-method" target="_blank" rel="noopener noreferrer">method and sources</a>). Higher means more resilient. Not a prediction for any individual.</p>
             <div className="careerGrid">
               {pb.careers?.map((c, i) => {
@@ -1201,7 +1201,7 @@ export default function App() {
           {/* ---- SECTION 3: Year-by-Year Timeline ---- */}
           <div className="section">
             <h2 className="secTitle">Year-by-Year Action Plan</h2>
-            <p className="secDesc">Your personalized roadmap from {gradeLabel} through college.</p>
+            <p className="secDesc">Your personalised roadmap from {gradeLabel} onwards.</p>
             <div className="timeline">
               {pb.yearPlan?.map((yp, i) => (
                 <TimelineNode key={i} year={yp.year} data={yp} idx={i} total={pb.yearPlan.length} />
@@ -1212,7 +1212,7 @@ export default function App() {
           {/* ---- SECTION 4: Building on What You Have ---- */}
           {pb.buildOn && pb.buildOn.length > 0 && <div className="section">
             <h2 className="secTitle">Building on What You Already Have</h2>
-            <p className="secDesc">{a.studentName || "Your child"} is NOT starting from zero. Here is how current activities connect to AI-resistant careers.</p>
+            <p className="secDesc">{a.studentName || "Your child"} is NOT starting from zero. Here is how current activities connect to AI-resilient careers.</p>
             <div className="buildGrid">
               {pb.buildOn.map((b, i) => (
                 <div key={i} className="buildCard">
@@ -1309,7 +1309,7 @@ export default function App() {
                 <div className="mkItems">
                   {pb.talkingPoints?.map((tp, i) => <div key={i} className="mkItem tp">→ {tp}</div>)}
                   <div className="mkItem tp">→ WEF projects 170M new jobs by 2030 alongside 92M displaced — net positive, but the new jobs require different preparation than we've historically focused on.</div>
-                  <div className="mkItem tp">→ PwC found an average 62% wage premium for AI-fluent workers (PwC 2026) — it varies by sector but spans the economy, from healthcare and law to education and the trades.</div>
+                  <div className="mkItem tp">→ PwC found UK job adverts requiring AI skills offer a 34% wage premium on average (62% across 27 countries) — it varies by sector but spans the economy, from healthcare and law to education and the trades (PwC 2026).</div>
                   <div className="mkItem tp">→ We're not trying to predict the future — we're building a student who can adapt to whatever it brings.</div>
                 </div>
               </div>
@@ -1401,7 +1401,7 @@ export default function App() {
                   <div className="allyPhaseItems">
                     <div className="allyItem"><span className="allyDot"/>Year 10 is when consistent study habits matter most — the groundwork laid now directly affects Year 11 results.</div>
                     <div className="allyItem"><span className="allyDot"/>Organise work experience in Year 10 if the school does not arrange it — NHS trusts, law firms, engineering companies, and creative agencies all accept school students. Contact them directly.</div>
-                    <div className="allyItem"><span className="allyDot"/>Begin researching post-16 options during Year 10: A-levels (typically 3 subjects, academic), BTECs (vocational, coursework-based), T-Levels (technical, include a substantial industry placement), or a Level 3 Apprenticeship (earn while you learn).</div>
+                    <div className="allyItem"><span className="allyDot"/>Begin researching post-16 options during Year 10: A-levels (typically 3 subjects, academic), V Levels (new vocational qualifications replacing many BTECs from September 2027, each the size of one A-level), T-Levels (technical, include a substantial industry placement), or a Level 3 Apprenticeship (earn while you learn). BTECs remain available in some subjects during the changeover.</div>
                     <div className="allyItem"><span className="allyDot"/>GCSE Results Day is in late August of Year 11 — have a confirmed post-16 place and a backup option before results day, not after.</div>
                     <div className="allyItem"><span className="allyDot"/>Applications to sixth forms, FE colleges, and apprenticeship programmes typically open in autumn/winter of Year 11 — do not leave this until after GCSEs.</div>
                     <div className="allyItem"><span className="allyDot"/>By law, young people in England must remain in education or training until age 18 — the question is which route, not whether.</div>
@@ -1416,7 +1416,7 @@ export default function App() {
                     <div className="allyItem"><span className="allyDot"/>Year 12 is when university, degree apprenticeship, and employment pathways begin to diverge meaningfully — research all three, even if the destination feels obvious.</div>
                     <div className="allyItem"><span className="allyDot"/>Attend university open days from the summer of Year 12 — most Russell Group and specialist universities hold them in June and July. Register early as popular events fill quickly.</div>
                     <div className="allyItem"><span className="allyDot"/>Research degree apprenticeships alongside traditional university routes — major employers offer degree apprenticeships leading to a full degree with no tuition fees and a salary from day one. Many open applications to Year 12 students.</div>
-                    <div className="allyItem"><span className="allyDot"/>Begin drafting personal statement ideas in the summer of Year 12 — the UCAS personal statement is 4,000 characters and takes longer to write well than most students expect.</div>
+                    <div className="allyItem"><span className="allyDot"/>Begin drafting personal statement ideas in the summer of Year 12 — the UCAS personal statement is now three questions with a 4,000-character total, and takes longer to write well than most students expect.</div>
                     <div className="allyItem"><span className="allyDot"/>The EPQ (Extended Project Qualification) is worth starting in Year 12 if available — it develops independent research skills and is explicitly valued by Russell Group admissions tutors.</div>
                     <div className="allyItem"><span className="allyDot"/>Check Student Finance England (gov.uk/student-finance) now — understanding tuition fee loans, maintenance loans, and income-contingent repayment terms before applying removes a significant source of anxiety later.</div>
                   </div>
@@ -1458,28 +1458,27 @@ export default function App() {
 
           {pb.aiRule && <div className="section">
             <div className="aiRuleBox">
-              <div className="arTitle">The 62% Rule</div>
-              <div className="arSub">Workers with AI skills earn a 62% wage premium on average (PwC, 2026)</div>
+              <div className="arTitle">The AI Skills Premium</div>
+              <div className="arSub">UK job adverts requiring AI skills offer a 34% wage premium on average (PwC, 2026)</div>
               <div className="arInsight">{pb.aiRule.insight}</div>
               <div className="arAction">→ {pb.aiRule.action}</div>
             </div>
           </div>}
 
-          {/* ---- Footer CTA ---- */}
+          {/* ---- Footer: method and sources ---- */}
           <div className="Rf no-print">
-            <h3>Want the full 22-page research behind this playbook?</h3>
-            <p>Explore 33 careers scored for AI resistance. Contribute your perspective and download the complete research document.</p>
-            {/* Deployment URL to be added */}
+            <h3>How these scores work</h3>
+            <p>{CAREER_COUNT} careers are scored for AI resilience using five published factors, with demand ratings from Skills England. Read the full method and sources on <a href="https://github.com/zero-conditional/ai-career-playbook-uk#scoring-method" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
           </div>
 
           {/* ---- Print footer ---- */}
           <div className="print-only print-footer">
-            <p>Research from 17 sources: WEF, Goldman Sachs, McKinsey, PwC, ONS, NHS, Prospects, IFS, DfE, Stanford HAI, Anthropic, and 10 more.</p>
+            <p>Research from PwC, Skills England, IFS, DfE, ONS, NHS, ISE, Prospects and NFER. Method and sources: github.com/zero-conditional/ai-career-playbook-uk</p>
             <p>AI Career Playbook UK · Zero Conditional</p>
             {/* Deployment URL to be added */}
           </div>
 
-          <p className="Rx no-print">AI Career Playbook UK · Zero Conditional · Research from WEF, PwC, IFS, DfE, ONS, NHS, Prospects, and Anthropic.</p>
+          <p className="Rx no-print">AI Career Playbook UK · Zero Conditional · Research from PwC, Skills England, IFS, DfE, ONS, NHS, ISE, Prospects and NFER.</p>
         </div>}
       </div>}
 
